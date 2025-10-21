@@ -1,0 +1,28 @@
+@use '../abstracts/' as *;
+
+
+.breadcrumb {
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.4rem;
+    line-height: 1.67;
+    color: #262728;
+    text-transform: uppercase;
+  }
+
+  li:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  li {
+    a {
+      color: #005726;
+    }
+
+    span {
+      margin-left: 8px;
+    }
+  }
+}

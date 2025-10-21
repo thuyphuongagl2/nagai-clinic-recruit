@@ -1,0 +1,33 @@
+@use '../abstracts/' as *;
+
+$-padding: 50px;
+$-padding--md: 20px;
+$-padding--sm: 20px;
+
+/*------------------------------------------------------------
+    Layout
+------------------------------------------------------------*/
+%container {
+  width: 100%;
+  max-width: $base-width + ($-padding * 2);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $-padding;
+
+  @include tab {
+    padding: 0 $-padding--md;
+  }
+
+  @include sp {
+    padding: 0 $-padding--sm;
+  }
+}
+
+.container {
+  @extend %container;
+}
+
+.container--1180 {
+  @extend %container;
+  max-width: 1180px + ($-padding * 2);
+}

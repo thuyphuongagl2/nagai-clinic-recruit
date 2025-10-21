@@ -1,0 +1,57 @@
+@use '../abstracts' as *;
+/*------------------------------------------------------------
+    Table of Contents Plus
+------------------------------------------------------------*/
+.maincontent #toc_container {
+    width: 100%;
+    margin: 20px 0;
+    background: #a33636 !important;
+    border: 1px solid #a33636 !important;
+    padding: 20px !important;
+    width: auto;
+    font-size: 100%;
+    display: block;
+    border-radius: 12px;
+
+    @include sp {
+        padding: 15px;
+    }
+
+    .toc_list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    li {
+        width: 48%;
+        margin: 8px 1%;
+
+        @include sp {
+            width: 100%;
+            margin: 6px 0;
+            font-size: 1.4rem;
+        }
+    }
+
+    a {
+        display: block;
+        position: relative;
+        padding-left: 20px;
+        color: #a33636;
+        font-size: 1.6rem;
+        font-weight: 500;
+        transition: 0.3s all;
+    }
+
+    a::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #a33636;
+    }
+}

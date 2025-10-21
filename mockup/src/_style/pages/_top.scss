@@ -1,0 +1,65 @@
+@use '../abstracts/' as *;
+
+/*------------------------------------------------------------
+    Mainvisual
+------------------------------------------------------------*/
+
+/*------------------------------------------------------------
+    Sample
+------------------------------------------------------------*/
+
+.message {
+
+  //.message__boxname .
+  &__boxname {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    position: absolute;
+    width: 300px;
+    height: 90px;
+    bottom: 20px;
+    left: 0;
+    border-radius: 7px;
+    padding: 10px;
+    background: $white;
+    padding: 15px 9px 15px 15px;
+    @include sp {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -45px;
+    }
+
+    .note {
+      font-size: 1.44rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.1em;
+
+      .pos {
+        font-size: 1.68rem;
+        font-weight: 500;
+        margin-right: 10px;
+      }
+
+      .jp {
+        font-size: 2.41rem;
+        font-weight: 700;
+        margin-right: 5px;
+      }
+
+      .en {
+        font-size: 1.2rem;
+        font-weight: 400;
+        // color: $gray;
+        letter-spacing: 0;
+      }
+    }
+  }
+}

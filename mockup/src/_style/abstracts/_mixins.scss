@@ -1,0 +1,35 @@
+//============================================
+// breakpoint
+//============================================
+@mixin sp {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media only screen and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin desktop  {
+  @media only screen and (min-width: 1025px) {
+    @content;
+  }
+}
+@mixin md {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin max-1280 {
+  @media only screen and (max-width: 1280px) {
+    @content;
+  }
+}

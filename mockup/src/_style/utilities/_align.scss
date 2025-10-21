@@ -1,0 +1,12 @@
+@use '../abstracts/' as *;
+
+/*------------------------------------------------------------
+    Align
+------------------------------------------------------------*/
+.center {
+    text-align: center!important;
+}
+
+.radius-0 {
+    border-radius: 0!important;
+}

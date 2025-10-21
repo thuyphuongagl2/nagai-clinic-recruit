@@ -1,0 +1,180 @@
+@use '../abstracts' as *;
+
+/*------------------------------------------------------------
+    Table
+------------------------------------------------------------*/
+.table01 {
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    overflow: hidden;
+
+    thead {
+      tr {
+        border-bottom: 1px solid $primary;
+        height: 48px;
+        @include sp {
+          height: 44px;
+        }
+      }
+
+      th {
+        width: 7.7%;
+        height: 0;
+        @include sp {
+          height: 33px;
+          width: 6.7%;
+        }
+
+        &:last-of-type {
+          width: 13%;
+          padding-right: 8px;
+          @include tab {
+            width: 16%;
+            padding-right: 4px;
+          }
+          @include sp {
+            padding-right: 10px;
+            width: 16%;
+          }
+        }
+      }
+    }
+
+    tbody {
+      td {
+        &:last-of-type {
+          padding-right: 14px;
+          @include sp {
+            padding-right: 10px;
+          }
+        }
+      }
+
+      th {
+        letter-spacing: 0.1em;
+      }
+    }
+
+    th,
+    td {
+      padding: 4px;
+      font-size: 1.5rem;
+      text-align: center;
+      // font-family: $jp-fonts-noto;
+      font-weight: 500;
+      line-height: 1.1;
+      height: 55px;
+    }
+
+    th {
+      &:first-of-type {
+        padding-left: 0;
+        width: 26.2%;
+        text-align: center;
+        padding-right: 0;
+        border-left: 0;
+        @include sp {
+          width: 30%;
+        }
+      }
+    }
+
+    tr {
+      border-bottom: 1px solid $primary;
+    }
+  }
+}
+.ovs {
+  overflow: auto;
+}
+
+.table03 {
+  overflow: hidden;
+  // border: 1px solid $gray-300;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 30px;
+
+  thead {
+    tr {
+      td,
+      th {
+        // border: 1px solid $gray-300;
+        padding: 20px 10px;
+        text-align: center;
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1.4;
+        // background-color: $blue-200;
+        color: $primary;
+        @include sp {
+          padding: 15px 5px;
+          font-size: 1.3rem;
+        }
+      }
+
+      td {
+        color: #808080;
+        background-color: $white;
+      }
+    }
+  }
+
+  tbody {
+    td,
+    th {
+      // border: 1px solid $gray-300;
+      padding: 20px 10px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      line-height: 1.4;
+      color: $primary;
+      @include sp {
+        font-size: 1.3rem;
+        letter-spacing: 0;
+        padding: 15px 5px;
+      }
+    }
+
+    tr {
+      background-color: $white;
+    }
+
+    th {
+      text-align: center;
+      width: 300px;
+      // background-color: $blue-200;
+
+      @include sp {
+        width: 30% !important;
+      }
+    }
+
+    td {
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0.05em;
+      // color: $gray-900;
+      text-align: center;
+      @include sp {
+        letter-spacing: 0;
+      }
+    }
+  }
+
+  &.fix_table {
+    @include sp {
+      table-layout: fixed;
+    }
+  }
+
+  &.roll_table {
+    @include sp {
+      width: 768px;
+    }
+  }
+}

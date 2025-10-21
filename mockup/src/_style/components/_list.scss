@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+
+/*------------------------------------------------------------
+    List
+------------------------------------------------------------*/
+.list-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 25px;
+  @include sp {
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 20px;
+  }
+
+  .btn01 {
+    width: 343px;
+    margin: 0;
+    letter-spacing: 0.015em;
+    @include sp {
+      width: 100%;
+    }
+  }
+}

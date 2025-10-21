@@ -1,0 +1,145 @@
+@use '../abstracts' as *;
+
+/*------------------------------------------------------------
+    Block
+------------------------------------------------------------*/
+.block1 {
+  padding-top: 130px;
+  padding-bottom: 112px;
+
+  //.block1__inner .
+  &__inner {
+    display: flex;
+    max-width: calc(100% - (100% - 1280px) / 2);
+    padding-right: 30px;
+  }
+
+  &__img , &__content {
+    width: 100%;
+  }
+
+  //.block1__img .
+  &__img {
+    max-width: 60.259%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  //.block1__content .
+  &__content {
+    max-width: 39.741%;
+    padding-left: 59px;
+    padding-right: 15px;
+    padding-top: 2px;
+  }
+}
+
+.block04 {
+  margin: 30px 0;
+
+  //.block04__inner .
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include sp {
+      display: block;
+    }
+  }
+
+  //.block04__img .
+  &__img {
+    width: 368px;
+    height: 552px;
+    flex-shrink: 0;
+    @include tab {
+      width: 268px;
+      height: 452px;
+    }
+    @include sp {
+      width: 100%;
+      height: 300px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  //.block04__content .
+  &__content {
+    padding-left: 67px;
+    @include tab {
+      padding-left: 30px;
+    }
+    @include sp {
+      padding-left: 0;
+    }
+  }
+
+  .block04__ttl {
+    margin: 40px 0 22px;
+    padding-left: 15px;
+    background: none;
+    @include tab {
+      margin: 20px 0 10px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      left: 0;
+      top: -8px;
+      background: url(/assets/img/common/square.png)no-repeat center ;
+      z-index: -1;
+
+    }
+  }
+
+  //.block04__boxname .
+  &__boxname {
+    font-weight: 500;
+
+    .note {
+      font-size: 1.4rem;
+      line-height: 1.11;
+      margin-bottom: 6px;
+    }
+
+    .name {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      line-height: 1.2;
+
+      .pos {
+        font-size: 1.4rem;
+        letter-spacing: 0.015em;
+        margin-right: 17px;
+      }
+
+      .jp {
+        font-size: 2.8rem;
+        letter-spacing: 0.015em;
+        margin-right: 12px;
+      }
+
+      .en {
+        font-family: $en-fonts;
+        font-weight: 400;
+        font-size: 1.3rem;
+        letter-spacing: 0;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+@use '../abstracts/' as *;
+
+/*------------------------------------------------------------
+    Page
+------------------------------------------------------------*/
+.mv01 {
+  position: relative;
+
+  //.mv01__img .
+  &__img {
+    @include tab {
+      height: 300px;
+    }
+    @include sp {
+      height: 250px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  //.mv01__textbox .
+  &__textbox {
+    position: absolute;
+    left: 100px;
+    bottom: 40px;
+    @include sp {
+      left: 20px;
+      bottom: 25px;
+      padding-right: 20px;
+    }
+  }
+
+  //.mv01__title .
+  &__title {
+    font-size: 4.5rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: $white;
+    @include sp {
+      font-size: 2.5rem;
+    }
+  }
+
+  //.mv01__list .
+  &__list {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/*------------------------------------------------------------
+    Main Content
+------------------------------------------------------------*/
+.maincontent {
+  padding-top: 90px;
+  padding-bottom: 70px;
+  position: relative;
+  z-index: 1;
+
+  @include tab {
+    padding-top: 40px;
+  }
+
+  @include sp {
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  @import '../components/content';
+
+  .section__popup {
+    padding-top: 50px;
+
+    .btn01 {
+      margin: 0 auto;
+      max-width: 320px;
+
+      .btn01__txt {
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.under {
+  .section {
+    padding-top: 55px;
+    @include sp {
+      padding-top: 40px;
+    }
+
+    &-pd02 {
+      padding-top: 32px;
+    }
+
+    &-pd03 {
+      padding-top: 39px;
+    }
+
+    &-pd04 {
+      padding-top: 62px;
+    }
+
+    &-pd06 {
+      padding-top: 62px;
+    }
+
+    &-pd07 {
+      padding-top: 30px;
+    }
+
+    &-pd08 {
+      padding-top: 20px;
+    }
+
+    &-pd09 {
+      padding-top: 38px;
+    }
+
+    &-pd10 {
+      padding-top: 38px;
+    }
+
+    &-pd11 {
+      padding-top: 51px;
+    }
+
+    &-pd12 {
+      padding-top: 57px;
+    }
+
+    &-pd13 {
+      padding-top: 44px;
+    }
+
+    &-pd14 {
+      padding-top: 58px;
+    }
+  }
+}
+
+
