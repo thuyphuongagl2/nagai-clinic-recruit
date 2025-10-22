@@ -48,6 +48,7 @@
     }
   }
 }
+
 .slider02 {
   position: relative;
   margin-bottom: 75px;
@@ -165,6 +166,7 @@
       margin: 5px;
       cursor: pointer;
       background-color: #808080;
+
       &.slick-active {
         background-color: $primary;
       }

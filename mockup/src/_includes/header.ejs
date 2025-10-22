@@ -2,7 +2,8 @@
   <div class="header__inner">
     <div class="header__logo">
       <a href="<%= baseUrl() %>" class="header__logoLink">
-        <img src="/assets/img/common/logo.png" class="header__logoimg" alt="糖尿病専門サイト" />
+        <img src="/assets/img/common/logo-h.png" class="header__logoimg" alt="糖尿病専門サイト" />
+        <p class="note">求人採用サイト</p>
       </a>
       <h1 class="header__title">Page title h1</h1>
     </div>
@@ -10,10 +11,16 @@
       <nav class="header__nav">
         <ul class="menu">
           <li class="menu__item">
-            <a href="<%= baseUrl() %>" class="menu__link current_page_item">Home</a>
+            <a href="<%= baseUrl() %>" class="menu__link current_page_item">
+              <span class="jp">ホーム</span>
+              <span class="en">Home</span>
+            </a>
           </li>
           <li class="menu__item menu-item-has-children col3">
-            <p class="menu__title">糖尿病内科</p>
+            <p class="menu__title">
+              <span class="jp">医師・医院紹介</span>
+              <span class="en">Doctor / Clinic</span>
+            </p>
             <div class="subInner">
               <ul class="sub__menu">
                 <li class="menu__item">
@@ -34,7 +41,10 @@
             </div>
           </li>
           <li class="menu__item menu-item-has-children col2">
-            <a class="menu__link ">クリニック紹介</a>
+            <a class="menu__link ">
+              <span class="jp">当院が選ばれる理由</span>
+              <span class="en">Reason</span>
+            </a>
             <div class="subInner">
               <ul class="sub__menu">
                 <li class="menu__item"><a href="#" class="sub__menu__link">医師紹介</a></li>
@@ -46,10 +56,10 @@
             </div>
           </li>
           <li class="menu__item">
-            <a href="<%= baseUrl() %>page-sample/" class="menu__link ">糖尿病の症状</a>
-          </li>
-          <li class="menu__item">
-            <a href="<%= baseUrl() %>page-sample/" class="menu__link ">糖尿病の治療</a>
+            <a href="<%= baseUrl() %>page-sample/" class="menu__link ">
+              <span class="jp">求職者様へ</span>
+              <span class="en">To Job Seekers</span>
+            </a>
           </li>
         </ul>
       </nav>

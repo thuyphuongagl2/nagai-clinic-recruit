@@ -3,24 +3,99 @@
 /*------------------------------------------------------------
     Mainvisual
 ------------------------------------------------------------*/
+.mv {
+  position: relative;
+  height: 100vh;
 
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    height: 642px;
+    background: url(/assets/img/common/bg01.png)no-repeat center top;
+    z-index: -1;
+  }
+
+  //.mv__wrap .
+  &__wrap {
+    position: relative;
+    padding-right: 10px;
+  }
+
+  //.mv__img .
+  &__img {
+    width: calc(50% + 85px);
+    position: relative;
+    margin-left: auto;
+    height: 100vh;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  //.mv__content .
+  &__content {
+    top: 26%;
+    left: 5%;
+    position: absolute;
+  }
+
+  //.mv__ttl .
+  &__ttl {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    line-height: calc(64.94 / 45);
+    position: relative;
+    color: $brown-900;
+    text-shadow: -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff,
+      3px 3px 0 #fff, 0 -3px 0 #fff, 0 3px 0 #fff, -3px 0 0 #fff, 3px 0 0 #fff,
+      0 0 3px #fff, 0 0 5px #fff;
+      margin-bottom: 30px;
+  }
+  //.mv__txt .
+  &__txt {
+    font-size: 2rem;
+    line-height: calc(35.2 / 20);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $brown-900;
+  }
+
+  //.mv__box .
+  &__box {
+
+  }
+}
+/*------------------------------------------------------------
+    Sample
+------------------------------------------------------------*/
+/*------------------------------------------------------------
+    Sample
+------------------------------------------------------------*/
+/*------------------------------------------------------------
+    Sample
+------------------------------------------------------------*/
+/*------------------------------------------------------------
+    Sample
+------------------------------------------------------------*/
+/*------------------------------------------------------------
+    Sample
+------------------------------------------------------------*/
 /*------------------------------------------------------------
     Sample
 ------------------------------------------------------------*/
 
 .message {
-
   //.message__boxname .
   &__boxname {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    position: absolute;
     width: 300px;
     height: 90px;
     bottom: 20px;
-    left: 0;
     border-radius: 7px;
     padding: 10px;
     background: $white;

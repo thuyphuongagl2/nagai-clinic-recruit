@@ -55,6 +55,7 @@
     cursor: pointer;
     transition: 0.3s all;
     border: 2px solid $white;
+
     &::before, &::after {
       position: absolute;
       top: 20px;
@@ -65,9 +66,11 @@
       background-color: $white;
       border-radius: 10px;
     }
+
     &::before {
       transform: rotate(-45deg);
     }
+
     &::after {
       transform: rotate(45deg);
     }

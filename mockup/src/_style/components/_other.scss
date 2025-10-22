@@ -16,6 +16,7 @@
     border: 0;
   }
 }
+
 .main_blog_container {
   display: flex;
   flex-wrap: wrap;
@@ -162,6 +163,7 @@
     .btn01__txt {
       padding: 5px 15px 5px 30px;
       min-height: 45px;
+
       &::before,
       &::after {
         content: none;
