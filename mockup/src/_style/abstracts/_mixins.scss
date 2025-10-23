@@ -18,7 +18,7 @@
     @content;
   }
 }
-@mixin desktop  {
+@mixin desktop {
   @media only screen and (min-width: 1025px) {
     @content;
   }
@@ -32,4 +32,15 @@
   @media only screen and (max-width: 1280px) {
     @content;
   }
+}
+@mixin ic-arrow($right) {
+  content: '';
+  position: absolute;
+  right: $right;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 8px;
+  transition: all 0.3s ease-in-out;
+  background: url(/assets/img/common/icon/icon_arrow01.svg) no-repeat center;
 }

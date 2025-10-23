@@ -3,3 +3,62 @@
 /*------------------------------------------------------------
     Title
 ------------------------------------------------------------*/
+.title01 {
+    position: relative;
+    z-index: 1;
+
+  .jp {
+    color: $brown-900;
+    font-size: 3.7rem;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    position: relative;
+    padding-left: 28px;
+    line-height: calc(59.09 / 37);
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 13px;
+        height: 13px;
+        background-color: $primary;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::after {
+      position: absolute;
+    top: -53px;
+      left: -50px;
+      content: attr(title);
+      font-weight: 600;
+      font-family: $en-fonts;
+      font-size: 15rem;
+      letter-spacing: 0.05em;
+      line-height: 0.8;
+      text-align: center;
+      color: $white;
+      z-index: -1;
+    }
+  }
+
+  //.titl01--style01 .
+  &--style01 {
+    .en {
+        display: block;
+        font-size: 1.6rem;
+        font-weight: 600;
+        font-family: $en-fonts;
+        line-height: calc(31.75 / 16);
+        letter-spacing: 0.05em;
+        color: $primary;
+    }
+
+    .jp {
+        font-size: 4rem;
+        display: block;
+    }
+  }
+}

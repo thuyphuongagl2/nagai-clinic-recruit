@@ -4,3 +4,62 @@
 /*------------------------------------------------------------
     Button
 ------------------------------------------------------------*/
+.btn01 {
+  //.btn01__txt .
+  &__txt {
+    width: 100%;
+    background-color: $white;
+    border-radius: 32.5px;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 5px 53px 5px 46px;
+    transition: all 0.3s ease-in-out;
+    color: $brown-900 !important;
+    text-decoration: none !important;
+    position: relative;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.375;
+    letter-spacing: 0.1em;
+    z-index: 1;
+    border: 1px solid $gray-100;
+
+    &::before {
+      position: absolute;
+      left: 19px;
+      content: '';
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background-color: $primary;
+      border-radius: 50%;
+      transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+      z-index: -1;
+    }
+
+    &::after {
+       @include ic-arrow(18px);
+    }
+
+    @include md {
+      &:hover {
+        opacity: 1;
+        color: $white !important;
+
+        &::before {
+          width: 100%;
+          height: 100%;
+          border-radius: 32.5px;
+          left: 0;
+        }
+
+        &::after {
+            filter: brightness(0) invert(1);
+        }
+      }
+    }
+  }
+}

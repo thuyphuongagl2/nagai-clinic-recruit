@@ -10,10 +10,11 @@
   &::after {
     content: '';
     position: absolute;
-    bottom: -50px;
+    bottom: -226px;
     width: 100%;
     height: 642px;
-    background: url(/assets/img/common/bg01.png)no-repeat center top;
+    background: url(/assets/img/common/bg01.png) no-repeat center top / 100%
+      100%;
     z-index: -1;
   }
 
@@ -39,8 +40,8 @@
 
   //.mv__content .
   &__content {
-    top: 26%;
-    left: 5%;
+    top: 18%;
+    left: 5.5%;
     position: absolute;
   }
 
@@ -55,7 +56,7 @@
     text-shadow: -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff,
       3px 3px 0 #fff, 0 -3px 0 #fff, 0 3px 0 #fff, -3px 0 0 #fff, 3px 0 0 #fff,
       0 0 3px #fff, 0 0 5px #fff;
-      margin-bottom: 30px;
+    margin-bottom: 8px;
   }
   //.mv__txt .
   &__txt {
@@ -68,15 +69,147 @@
 
   //.mv__box .
   &__box {
-
+    margin-top: 38px;
+    margin-left: -21px;
   }
 }
 /*------------------------------------------------------------
-    Sample
+    Message
 ------------------------------------------------------------*/
+.message {
+  padding: 152px 0 1px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 247px;
+    background: url(/assets/img/common/bg02.png) no-repeat center bottom / 100%
+      100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 247px;
+    background-color: $brown-200;
+    width: 100%;
+    height: calc(100% - 247px);
+    z-index: -1;
+  }
+
+  //.message__inner .
+  &__inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 3px;
+    padding-top: 59px;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 50px;
+      top: -140px;
+      width: 341px;
+      height: 232px;
+      background: url(/assets/img/common/cirle01.png) no-repeat center / 341px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $white;
+      width: calc((929 / 1280) * 100vw);
+      height: calc(100% - 122px);
+      border-radius: 0 15px 15px 0;
+    }
+  }
+
+  //.message__content .
+  &__content {
+    margin: 0 55px 0 0;
+    width: calc((542 / 1280) * 100vw);
+    position: relative;
+    z-index: 2;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: -227px;
+      top: -78px;
+      width: 106px;
+      height: 192px;
+      background: url(/assets/img/common/illust01.svg) no-repeat center;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -66px;
+      bottom: -153px;
+      width: 110px;
+      height: 110px;
+      background: url(/assets/img/common/cirle02.png) no-repeat center / 110px;
+    }
+  }
+
+  //.message__txt .
+  &__txt {
+    font-size: 1.8rem;
+    line-height: calc(36 / 18);
+    letter-spacing: 0.13em;
+    font-weight: 500;
+    color: $brown-900;
+    margin-bottom: 32px;
+  }
+
+  //.message__btns .
+  &__btns {
+    display: flex;
+    gap: 15px;
+  }
+
+  //.message__img .
+  &__img {
+    position: relative;
+    z-index: 2;
+    mask: url(/assets/img/common/path01.png) no-repeat center / 100% 100%;
+    overflow: hidden;
+    width: 583.5px;
+    height: 660.5px;
+    margin-top: 60px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
 /*------------------------------------------------------------
-    Sample
+    Interview
 ------------------------------------------------------------*/
+.interview {
+  position: relative;
+  padding: 0 0;
+  background-color: $brown-200;
+
+  //.interview__head .
+  &__head {
+    display: flex;
+    margin-bottom: 44px;
+    gap: 0 20px;
+  }
+}
 /*------------------------------------------------------------
     Sample
 ------------------------------------------------------------*/
