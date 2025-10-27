@@ -200,7 +200,7 @@
 ------------------------------------------------------------*/
 .interview {
   position: relative;
-  padding: 0 0;
+  padding: 0 0 100px;
   background-color: $brown-200;
 
   //.interview__head .
@@ -209,10 +209,108 @@
     margin-bottom: 44px;
     gap: 0 20px;
   }
+
+  //.interview__slide .
+  &__slide {
+    z-index: 2;
+    position: relative;
+  }
 }
 /*------------------------------------------------------------
-    Sample
+    Reason
 ------------------------------------------------------------*/
+.reason {
+  background-color: $brown-100;
+  padding: 100px 0;
+
+  //.reason__head .
+  &__head {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+        z-index: 2;
+
+    .logo {
+      width: 598px;
+    }
+
+    .txt {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      line-height: calc(21 / 40);
+      color: $brown-900;
+      text-align: right;
+
+      span {
+        color: $primary;
+        font-family: $en-fonts;
+        font-weight: 700;
+        font-size: 7rem;
+        letter-spacing: 0.15em;
+        line-height: calc(21 / 70);
+      }
+    }
+  }
+
+  //.reason__title .
+  &__title {
+    position: relative;
+    z-index: 2;
+
+    &::after {
+      position: absolute;
+      top: -12px;
+      left: 50px;
+      transform: translateY(-50%);
+      content: attr(title);
+      font-weight: 600;
+      font-family: $en-fonts;
+      font-size: 15rem;
+      letter-spacing: 0.05em;
+      line-height: 0.8;
+      text-align: center;
+      color: #fff;
+      z-index: -1;
+    }
+  }
+
+  //.reason__list .
+  &__list {
+    margin-top: 40px;
+  }
+
+  //.reason__item .
+  &__item {
+    border: 1px solid $primary;
+    border-radius: 25px 25px 0 0;
+    position: relative;
+  }
+
+  //.reason__imgtxt .
+  &__imgtxt {
+    position: relative;
+  }
+
+  //.reason__point .
+  &__point {
+    position: absolute;
+    // top: 0;
+    left: 0;
+
+    p {
+      color: $white;
+      font-family: $en-fonts;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 2.4rem;
+
+    }
+  }
+}
 /*------------------------------------------------------------
     Sample
 ------------------------------------------------------------*/
