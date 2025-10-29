@@ -220,8 +220,28 @@
     Reason
 ------------------------------------------------------------*/
 .reason {
-  background-color: $brown-100;
-  padding: 100px 0;
+  position: relative;
+  padding: 100px 0 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background-color: $brown-100;
+    z-index: -1;
+  }
+
+  .btn01 {
+    width: 177px;
+    margin: -34px auto 0;
+
+    .btn01__txt {
+      padding-right: 30px;
+    }
+  }
 
   //.reason__head .
   &__head {
@@ -231,7 +251,7 @@
     justify-content: center;
     flex-direction: column;
     position: relative;
-        z-index: 2;
+    z-index: 2;
 
     .logo {
       width: 598px;
@@ -288,17 +308,81 @@
     border: 1px solid $primary;
     border-radius: 25px 25px 0 0;
     position: relative;
+    background-color: $white;
+    overflow: hidden;
+
+    &.is-reverse {
+      margin-top: -34px;
+
+      .reason__imgtxt {
+        &::after {
+          right: auto;
+          left: -59px;
+          background-image: url(/assets/img/common/cirle08.png);
+        }
+      }
+
+      .reason__point {
+        left: auto;
+        right: 0;
+      }
+
+      .reason__inner {
+        flex-direction: row-reverse;
+      }
+
+      .reason__content {
+        margin: 0 -30px 0 0;
+        padding: 55px 50px 100px 181px;
+
+        &::before {
+          right: auto;
+          left: 155px;
+          background-image: url(/assets/img/common/cirle04.png);
+        }
+      }
+
+      .reason__img {
+        margin: -30px -130px 0 0;
+      }
+    }
+
+    &:nth-child(3) {
+      margin-top: -34px;
+    }
+
+    &:last-child {
+      .reason__content {
+        padding-bottom: 68px;
+      }
+
+      .reason__imgtxt {
+        &::after {
+          bottom: -20px;
+        }
+      }
+    }
   }
 
   //.reason__imgtxt .
   &__imgtxt {
     position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: -59px;
+      bottom: 13px;
+      width: 220px;
+      height: 220px;
+      background: url(/assets/img/common/cirle07.png) no-repeat center / 220px;
+    }
   }
 
   //.reason__point .
   &__point {
     position: absolute;
-    // top: 0;
+    top: 0;
     left: 0;
 
     p {
@@ -307,65 +391,309 @@
       font-weight: 600;
       letter-spacing: 0.05em;
       font-size: 2.4rem;
+      background-color: $primary;
+      min-width: 155px;
+      text-align: center;
+      border-radius: 0 0 5px 5px;
+      padding: 3px 5px 2px;
+    }
+  }
 
+  //.reason__inner .
+  &__inner {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 99px;
+  }
+
+  //.reason__content .
+  &__content {
+    background-color: $brown-100;
+    border-radius: 20px 20px 0 0;
+    padding: 55px 175px 100px 50px;
+    width: 100%;
+    max-width: 595px;
+    flex-shrink: 0;
+    margin-left: -30px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 155px;
+      top: -43px;
+      width: 88px;
+      height: 88px;
+      background: url(/assets/img/common/cirle03.png) no-repeat center / 88px;
+    }
+
+    .ttl {
+      color: $primary;
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 0.015em;
+      line-height: calc(44.2 / 26);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px dotted transparent;
+      border-image: repeating-linear-gradient(
+          to right,
+          $brown-400 0 2px,
+          transparent 2px 8px
+        )
+        1;
+    }
+  }
+
+  //.reason__img .
+  &__img {
+    width: 100%;
+    max-width: 595px;
+    margin-left: -130px;
+    margin-top: -30px;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }
 /*------------------------------------------------------------
-    Sample
+    Job
 ------------------------------------------------------------*/
-/*------------------------------------------------------------
-    Sample
-------------------------------------------------------------*/
-/*------------------------------------------------------------
-    Sample
-------------------------------------------------------------*/
+.job {
+  padding: 129px 0;
+  position: relative;
+  margin-bottom: 241px;
 
-.message {
-  //.message__boxname .
-  &__boxname {
-    width: 300px;
-    height: 90px;
-    bottom: 20px;
-    border-radius: 7px;
-    padding: 10px;
-    background: $white;
-    padding: 15px 9px 15px 15px;
-    @include sp {
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -45px;
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    width: 135px;
+    height: 135px;
+    left: -45px;
+    top: 32px;
+    background: url(/assets/img/common/cirle05.png) no-repeat center / 135px;
+  }
+
+  &::after {
+    width: 398px;
+    height: 287px;
+    right: -81px;
+    bottom: -36px;
+    background: url(/assets/img/common/cirle06.png) no-repeat center / 398px;
+    z-index: -1;
+  }
+
+  .title01 {
+    .jp {
+      &::after {
+        top: -53px;
+        white-space: nowrap;
+        color: $brown-100;
+        left: 210px;
+      }
     }
+  }
+}
+/*------------------------------------------------------------
+    Infor
+------------------------------------------------------------*/
+.infor {
+  background-color: $brown-200;
+  padding: 38px 0;
 
-    .note {
-      font-size: 1.44rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
+  //.infor__wrap .
+  &__wrap {
+    width: 100%;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 45px;
+  }
+
+  //.infor__inner .
+  &__inner {
+    display: flex;
+    align-items: stretch;
+    background-color: $white;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+
+  //.infor__img .
+  &__img {
+    width: 100%;
+    max-width: 508px;
+    flex-shrink: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
+  }
 
-    .name {
+  //.infor__content .
+  &__content {
+    padding: 70px 100px;
+    width: 100%;
+  }
+
+  //.infor__logo .
+  &__logo {
+    max-width: 480px;
+  }
+
+  //.infor__address .
+  &__address {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: calc(26.25 / 16);
+    color: $brown-900;
+    text-align: center;
+    padding-left: 70px;
+    margin: 7px 0 21px;
+  }
+  .tel {
+    margin-bottom: 30px;
+    a {
+      min-height: 90px;
+      background-color: $brown-100;
+      &::after {
+        content: '';
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background: url(/assets/img/common/icon/icon_arrow02.svg) no-repeat
+          center / 10px;
+        background-color: $white;
+      }
+
+      span {
+        position: relative;
+        font-size: 3.9rem;
+        font-family: $en-fonts;
+        font-weight: 700;
+        color: $brown-900;
+        letter-spacing: 0.1em;
+        line-height: calc(53.07 / 39);
+        padding-left: 89px;
+        &::before {
+          width: 60px;
+          height: 60px;
+          background: url(/assets/img/common/icon/icon_phone.svg) no-repeat
+            center / 30px;
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  //.infor__btns .
+  &__btns {
+    display: flex;
+    margin-top: 24px;
+    gap: 0 15px;
+  }
+}
+/*------------------------------------------------------------
+    Contact
+------------------------------------------------------------*/
+.contact {
+  position: relative;
+  padding: 200px 0;
+  background: url(/assets/img/top/contact_bg.jpg) no-repeat center;
+.filter {
+backdrop-filter: blur(25px);
+ mask-image: radial-gradient(white 5px, transparent 6px);
+}
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &::before {
+    // filter: blur(25px);
+    // opacity: 50%;
+    z-index: -1;
+  }
+  &::after {
+    background-color: $primary;
+    mix-blend-mode: multiply;
+    z-index: -1;
+  }
+
+  //.contact__inner .
+  &__inner {
+  }
+  .loop_text {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    .loop_textWrap {
       display: flex;
       align-items: center;
-      letter-spacing: 0.1em;
-
-      .pos {
-        font-size: 1.68rem;
-        font-weight: 500;
-        margin-right: 10px;
+      width: 200%;
+      height: 100%;
+      animation: loop1 20s linear infinite;
+      gap: 50px;
+      span {
+        display: inline-block;
+        width: auto;
+        flex: 0 0 auto;
+        white-space: nowrap;
+        font-size: 16rem;
+        font-family: $en-fonts;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        line-height: 1;
       }
-
-      .jp {
-        font-size: 2.41rem;
-        font-weight: 700;
-        margin-right: 5px;
-      }
-
-      .en {
-        font-size: 1.2rem;
-        font-weight: 400;
-        // color: $gray;
-        letter-spacing: 0;
-      }
+    }
+  }
+  .ttl {
+    text-align: center;
+    color: $white;
+    font-size: 3.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 150px;
+      height: 2px;
+      border-bottom: 2px dotted transparent;
+      border-image: repeating-linear-gradient(
+          to right,
+          $white 0 2px,
+          transparent 2px 8px
+        )
+        1;
     }
   }
 }

@@ -80,6 +80,148 @@
   }
 }
 
+.list02 {
+  display: flex;
+  gap: 25px;
+  margin-top: 60px;
+
+  //.list02__item .
+  &__item {
+    position: relative;
+    width: calc(25% - 10px);
+  }
+
+  //.list02__top .
+  &__top {
+    position: relative;
+  }
+
+  //.list02__img .
+  &__img {
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  //.list02__ttl .
+  &__ttl {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    a {
+      background-color: $white;
+      border-radius: 0 15px;
+      display: inline-block;
+      padding: 12px 42px 4px 10px;
+      color: $brown-900;
+      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      line-height: calc(27 / 18);
+      position: relative;
+
+      &::after {
+        @include ic-arrow(19px);
+        transform: none;
+        bottom: 12px;
+        top: auto;
+      }
+    }
+  }
+
+  .txt01 {
+    margin-top: 19px;
+    padding-top: 10px;
+    border-top: 2px dotted transparent;
+    border-image: repeating-linear-gradient(
+        to right,
+        $brown-400 0 2px,
+        transparent 2px 8px
+      )
+      1;
+  }
+}
+.list03 {
+  margin-top: 23px;
+
+  //.list03__item .
+  &__item {
+  }
+
+  //.list03__link .
+  &__link {
+    display: flex;
+    align-items: flex-start;
+    padding: 30px 45px 30px 0;
+    position: relative;
+    border-bottom: 1px solid $gray-100;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 35px;
+      height: 1px;
+      transition: all 1s cubic-bezier(0.4, 0, 0, 1);
+      background-color: $primary;
+    }
+    @include md {
+      &:hover {
+        &::before {
+          width: 100%;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+
+    .num {
+      font-size: 1.4rem;
+      color: $primary;
+      font-weight: 500;
+      font-family: $en-fonts;
+      letter-spacing: 0.05em;
+      margin-top: 8px;
+    }
+    .txt {
+      font-size: 2.3rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: calc(32.79 / 23);
+      color: $brown-900;
+      margin-left: 14px;
+    }
+    .btn {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 50%;
+        border: 1px solid $gray-100;
+        width: 38px;
+        height: 38px;
+      }
+      &::after {
+        @include ic-arrow(15px);
+      }
+    }
+  }
+}
+
 .list-button {
   display: flex;
   flex-wrap: wrap;

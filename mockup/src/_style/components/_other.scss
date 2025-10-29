@@ -18,7 +18,11 @@
 }
 
 .txt01 {
-  
+  color: $brown-900;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: calc(32 / 16);
 }
 
 .main_blog_container {

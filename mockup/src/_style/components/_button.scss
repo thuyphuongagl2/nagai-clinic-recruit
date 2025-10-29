@@ -5,6 +5,8 @@
     Button
 ------------------------------------------------------------*/
 .btn01 {
+  min-width: 171px;
+
   //.btn01__txt .
   &__txt {
     width: 100%;
@@ -14,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding: 5px 53px 5px 46px;
+    padding: 5px 42px 5px 46px;
     transition: all 0.3s ease-in-out;
     color: $brown-900 !important;
     text-decoration: none !important;
@@ -41,7 +43,7 @@
     }
 
     &::after {
-       @include ic-arrow(18px);
+      @include ic-arrow(18px);
     }
 
     @include md {
@@ -57,9 +59,31 @@
         }
 
         &::after {
-            filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
         }
       }
+    }
+  }
+}
+
+.btn02 {
+  a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+    position: relative;
+    padding: 5px 20px;
+    span {
+      position: relative;
+      &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: -2px;
+          border-radius: 50%;
+        }
     }
   }
 }

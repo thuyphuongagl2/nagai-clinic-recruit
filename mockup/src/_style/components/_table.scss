@@ -4,138 +4,115 @@
     Table
 ------------------------------------------------------------*/
 .table01 {
+  //.table01__inner .
+  &__inner {
+    border: 1px solid $gray-100;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
-    overflow: hidden;
 
     thead {
+
       tr {
-        border-bottom: 1px solid $primary;
-        height: 48px;
+        border-bottom: 1px solid $gray-100;
+        height: 42px;
         @include sp {
-          height: 44px;
+          height: 43px;
         }
       }
 
       th {
-        width: 7.7%;
-        height: 0;
+        width: 8.7%;
+        height: 42px;
         @include sp {
-          height: 33px;
-          width: 6.7%;
+          height: 43px;
+          width: 9%;
         }
-
-        &:last-of-type {
-          width: 13%;
-          padding-right: 8px;
-          @include tab {
-            width: 16%;
-            padding-right: 4px;
-          }
-          @include sp {
-            padding-right: 10px;
-            width: 16%;
-          }
-        }
-      }
-    }
-
-    tbody {
-      td {
-        &:last-of-type {
-          padding-right: 14px;
-          @include sp {
-            padding-right: 10px;
-          }
-        }
-      }
-
-      th {
-        letter-spacing: 0.1em;
       }
     }
 
     th,
     td {
-      padding: 4px;
-      font-size: 1.5rem;
+      padding: 4px 2px;
+      font-size: 1.6rem;
       text-align: center;
-      // font-family: $jp-fonts-noto;
       font-weight: 500;
-      line-height: 1.1;
-      height: 55px;
+      line-height: calc(26.25 / 16);
+      border-left: 1px solid $gray-100;
+      height: 43px;
+      letter-spacing: 0.1em;
+      @include sp {
+        height: 50px;
+        font-size: 1.3rem;
+        padding: 2px 0;
+      }
     }
 
     th {
       &:first-of-type {
         padding-left: 0;
-        width: 26.2%;
+        width: 22.2%;
         text-align: center;
         padding-right: 0;
         border-left: 0;
         @include sp {
-          width: 30%;
+          width: 9%;
+        }
+      }
+
+      &:last-of-type {
+        @include sp {
+          width: 10%;
         }
       }
     }
 
     tr {
-      border-bottom: 1px solid $primary;
+      &:not(:last-child) {
+        border-bottom: 1px solid $gray-100;
+      }
     }
+  }
+
+  //.table01__txt .
+  &__txt {
+    font-weight: 500;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    line-height: calc(26.25 / 14);
+    margin-top: 8px;
   }
 }
 
 .ovs {
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table03 {
   overflow: hidden;
-  // border: 1px solid $gray-300;
+  border: 1px solid $gray-100;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 30px;
-
-  thead {
-    tr {
-      td,
-      th {
-        // border: 1px solid $gray-300;
-        padding: 20px 10px;
-        text-align: center;
-        font-size: 1.6rem;
-        font-weight: 700;
-        letter-spacing: 0;
-        line-height: 1.4;
-        // background-color: $blue-200;
-        color: $primary;
-        @include sp {
-          padding: 15px 5px;
-          font-size: 1.3rem;
-        }
-      }
-
-      td {
-        color: #808080;
-        background-color: $white;
-      }
-    }
-  }
+  margin-bottom: 15px;
 
   tbody {
     td,
     th {
-      // border: 1px solid $gray-300;
+      border: 1px solid $gray-100;
       padding: 20px 10px;
       font-size: 1.6rem;
-      font-weight: 600;
+      font-weight: 500;
       letter-spacing: 0;
       line-height: 1.4;
       color: $primary;
       @include sp {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         letter-spacing: 0;
         padding: 15px 5px;
       }
@@ -147,35 +124,73 @@
 
     th {
       text-align: center;
-      width: 300px;
-      // background-color: $blue-200;
+      // width: 300px;
+      min-width: 83px;
+      background-color: $gray-100;
+      width: auto;
 
       @include sp {
-        width: 30% !important;
+        // width: 30% !important;
       }
     }
 
     td {
-      font-weight: 500;
+      font-weight: 400;
       line-height: 1.5;
       letter-spacing: 0.05em;
-      // color: $gray-900;
-      text-align: center;
+      color: $brown-900;
       @include sp {
         letter-spacing: 0;
+        min-width: 49px;
       }
     }
   }
 
-  &.fix_table {
+  &__note {
+    display: none;
     @include sp {
-      table-layout: fixed;
+      display: block;
+      font-size: 1.3rem !important;
+      color: #ccc;
+      letter-spacing: 0.02em !important;
+      margin-top: 2px;
+      line-height: 1.2 !important;
     }
+  }
+
+  &.fix_table {
+    table-layout: fixed;
   }
 
   &.roll_table {
     @include sp {
       width: 768px;
+    }
+  }
+
+  &.resTable {
+    @include sp {
+      display: block;
+      border-bottom: 1px solid $gray-100;
+      border: 0;
+
+      tbody,
+      tr,
+      th,
+      td {
+        display: block;
+      }
+
+      th,
+      td {
+        border-bottom: 0;
+      }
+
+      tr {
+        &:last-child {
+          border-bottom: 1px solid $gray-100;
+        }
+      }
     }
   }
 }

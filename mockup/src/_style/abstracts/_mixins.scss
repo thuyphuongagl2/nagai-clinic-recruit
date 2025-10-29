@@ -44,3 +44,12 @@
   transition: all 0.3s ease-in-out;
   background: url(/assets/img/common/icon/icon_arrow01.svg) no-repeat center;
 }
+
+@keyframes loop1 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
