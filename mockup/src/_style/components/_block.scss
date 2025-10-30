@@ -35,15 +35,22 @@
       z-index: -1;
     }
   }
+
   &.last {
     background-color: $brown-200;
+
     &::before {
       background-image: url(/assets/img/common/bg04.png);
     }
+
     .block01__inner {
       flex-direction: row-reverse;
       padding: 0 0 0 61px;
       margin-top: -194px;
+      @include lg {
+        padding: 0 0 0 30px;
+      }
+
       &::after {
         right: 46%;
         top: -271px;
@@ -52,10 +59,15 @@
         background-image: url(/assets/img/common/illust03.svg);
       }
     }
+
     .block01__content {
       margin-top: -28px;
       padding-right: 56px;
+      @include lg {
+        padding: 0 30px 0 0;
+      }
     }
+
     .block01__img {
       &::after {
         background-image: url(/assets/img/common/bg_grad02.png);
@@ -68,6 +80,10 @@
     display: flex;
     padding: 0 115px 0 0;
     margin-top: -162px;
+    @include lg {
+      padding: 0 20px 0 0;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -85,6 +101,11 @@
     height: 521px;
     position: relative;
     z-index: 1;
+    @include lg {
+      width: 450px;
+      height: 450px;
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -92,8 +113,13 @@
       top: 50px;
       width: 490px;
       height: 490px;
-      background: url(/assets/img/common/bg_grad01.png) no-repeat center / 490px;
+      background: url(/assets/img/common/bg_grad01.png) no-repeat center bottom/ 490px;
       z-index: -1;
+      @include lg {
+        width: 420px;
+        height: 420px;
+        background-size: 420px;
+      }
     }
 
     img {

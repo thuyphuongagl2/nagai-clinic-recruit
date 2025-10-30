@@ -23,6 +23,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  pointer-events: none;
 
   //.header__inner .
   &__inner {
@@ -38,7 +39,7 @@ body {
     z-index: 9000;
     transition: background-color 0.3s ease;
     @include lg {
-      padding: 0 2%;
+      padding: 0 0 0 2.1%;
     }
     @include tab {
       padding: 0 4%;
@@ -50,6 +51,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 12px;
+    pointer-events: all;
 
     .note {
       color: $white;
@@ -61,6 +63,9 @@ body {
       padding: 6px 10px 6px 15px;
       border-radius: 5px;
       margin-top: 7px;
+      @include lg {
+        font-size: 1.2rem;
+      }
     }
   }
 
@@ -69,7 +74,8 @@ body {
     width: 311px;
     margin-right: 15px;
     @include lg {
-      width: 200px;
+      width: 290px;
+      margin-right: 10px;
     }
   }
 
@@ -114,7 +120,8 @@ body {
   &__nav {
     background-color: $white;
     border-radius: 36.5px 0 0 36.5px;
-    padding: 14px 48px 19px;
+    padding: 14px 48px 7px;
+    pointer-events: all;
     // flex: 1;
   }
 }
@@ -156,6 +163,9 @@ body {
       line-height: calc(28 / 16);
       color: $brown-900;
       display: block;
+      @include lg {
+        font-size: 1.4rem;
+      }
     }
 
     .en {
@@ -218,7 +228,7 @@ body {
 }
 
 .sub__menu {
-  background-color: rgba(46, 93, 122, 0.8);
+  background-color: $primary;
   padding-bottom: 10px;
   padding-top: 4px;
   @include tab {
@@ -354,7 +364,7 @@ body {
   .menu__link,
   .menu__title {
     position: relative;
-    padding-bottom: 18px;
+    padding-bottom: 13px;
     // transition: 0.3s ease;
     @include tab {
       padding-bottom: 0;
@@ -485,6 +495,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: all;
   }
 
   &.active {

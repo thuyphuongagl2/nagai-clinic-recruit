@@ -57,6 +57,9 @@
       3px 3px 0 #fff, 0 -3px 0 #fff, 0 3px 0 #fff, -3px 0 0 #fff, 3px 0 0 #fff,
       0 0 3px #fff, 0 0 5px #fff;
     margin-bottom: 8px;
+    @include tab {
+      font-size: 3rem;
+    }
   }
   //.mv__txt .
   &__txt {
@@ -65,12 +68,94 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     color: $brown-900;
+    @include tab {
+      font-size: 1.6rem;
+    }
   }
 
   //.mv__box .
   &__box {
     margin-top: 38px;
     margin-left: -21px;
+  }
+}
+/*------------------------------------------------------------
+    Newsbox
+------------------------------------------------------------*/
+.newsbox {
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  max-width: 590px;
+
+  //.newsbox__inner .
+  &__inner {
+    background-color: $white;
+    border-radius: 0 36.5px 36.5px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 17px 20px 16px 50px;
+  }
+
+  //.newsbox__head .
+  &__head {
+    position: absolute;
+    top: -16px;
+  }
+
+  //.newsbox__ttl .
+  &__ttl {
+    font-size: 2.4rem;
+    font-family: $en-fonts;
+    font-weight: 600;
+    color: $primary;
+    letter-spacing: 0.05em;
+    line-height: calc(31.75 / 24);
+  }
+
+  //.newsbox__info .
+  &__info {
+    margin-right: 20px;
+  }
+
+  //.newsbox__link .
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+
+  //.newsbox__date .
+  &__date {
+    color: $primary;
+    font-weight: 500;
+    font-family: $en-fonts2;
+    font-size: 1.2rem;
+    letter-spacing: 0.05em;
+    line-height: calc(12.96 / 12);
+  }
+
+  //.newsbox__text .
+  &__text {
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    line-height: calc(36 / 16);
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+    margin-left: 8px;
+  }
+
+  .btn01 {
+    min-width: 151px;
+
+    a {
+      min-height: 40px;
+      font-size: 1.4rem;
+      padding: 5px 32px 5px 36px;
+    }
   }
 }
 /*------------------------------------------------------------
@@ -110,6 +195,7 @@
     position: relative;
     margin-top: 3px;
     padding-top: 59px;
+    padding-left: 20px;
     z-index: 1;
 
     &::before {
@@ -140,6 +226,10 @@
     width: calc((542 / 1280) * 100vw);
     position: relative;
     z-index: 2;
+    @include lg {
+      margin: 0 36px 0 0;
+      width: calc((542 / 768) * 100vw);
+    }
 
     &::before {
       content: '';
@@ -221,7 +311,7 @@
 ------------------------------------------------------------*/
 .reason {
   position: relative;
-  padding: 100px 0 0;
+  padding: 50px 0 0;
 
   &::after {
     content: '';
@@ -252,6 +342,7 @@
     flex-direction: column;
     position: relative;
     z-index: 2;
+    margin-top: -26px;
 
     .logo {
       width: 598px;
@@ -272,6 +363,19 @@
         font-size: 7rem;
         letter-spacing: 0.15em;
         line-height: calc(21 / 70);
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          top: 0;
+          width: 93px;
+          height: 93px;
+          border-radius: 50%;
+          background-color: $white;
+          z-index: -1;
+        }
       }
     }
   }
@@ -283,8 +387,8 @@
 
     &::after {
       position: absolute;
-      top: -12px;
-      left: 50px;
+          top: -17px;
+    left: 27px;
       transform: translateY(-50%);
       content: attr(title);
       font-weight: 600;
@@ -300,7 +404,7 @@
 
   //.reason__list .
   &__list {
-    margin-top: 40px;
+    margin-top: 85px;
   }
 
   //.reason__item .
@@ -501,6 +605,9 @@
         white-space: nowrap;
         color: $brown-100;
         left: 210px;
+        @include lg {
+          font-size: 11rem;
+        }
       }
     }
   }
@@ -510,7 +617,8 @@
 ------------------------------------------------------------*/
 .infor {
   background-color: $brown-200;
-  padding: 38px 0;
+  padding: 38px 0 0;
+  position: relative;
 
   //.infor__wrap .
   &__wrap {
@@ -528,13 +636,18 @@
     background-color: $white;
     border-radius: 15px;
     overflow: hidden;
+    position: relative;
+    z-index: 2;
   }
 
   //.infor__img .
   &__img {
     width: 100%;
     max-width: 508px;
-    flex-shrink: 0;
+    @include lg {
+      max-width: 400px;
+    }
+
     img {
       width: 100%;
       height: 100%;
@@ -546,6 +659,10 @@
   &__content {
     padding: 70px 100px;
     width: 100%;
+    flex: 1;
+    @include lg {
+      padding: 60px 30px;
+    }
   }
 
   //.infor__logo .
@@ -564,11 +681,14 @@
     padding-left: 70px;
     margin: 7px 0 21px;
   }
+
   .tel {
     margin-bottom: 30px;
+
     a {
       min-height: 90px;
       background-color: $brown-100;
+
       &::after {
         content: '';
         position: absolute;
@@ -592,6 +712,7 @@
         letter-spacing: 0.1em;
         line-height: calc(53.07 / 39);
         padding-left: 89px;
+
         &::before {
           width: 60px;
           height: 60px;
@@ -615,13 +736,10 @@
 ------------------------------------------------------------*/
 .contact {
   position: relative;
-  padding: 200px 0;
+  padding: 239px 0 151px;
   background: url(/assets/img/top/contact_bg.jpg) no-repeat center;
-.filter {
-backdrop-filter: blur(25px);
- mask-image: radial-gradient(white 5px, transparent 6px);
-}
-  &::before,
+  margin-top: -150px;
+
   &::after {
     content: '';
     position: absolute;
@@ -629,27 +747,32 @@ backdrop-filter: blur(25px);
     top: 0;
     width: 100%;
     height: 100%;
-  }
-  &::before {
-    // filter: blur(25px);
-    // opacity: 50%;
-    z-index: -1;
-  }
-  &::after {
     background-color: $primary;
     mix-blend-mode: multiply;
-    z-index: -1;
+    // z-index: -1;
   }
 
   //.contact__inner .
   &__inner {
+    margin: 0 auto;
+    max-width: 735px;
+    position: relative;
+    z-index: 1;
+
+    .txt01 {
+      max-width: 578px;
+      margin: 0 auto;
+    }
   }
+
   .loop_text {
     position: absolute;
     display: flex;
     width: 100%;
     overflow: hidden;
     z-index: 1;
+    bottom: -28px;
+
     .loop_textWrap {
       display: flex;
       align-items: center;
@@ -657,6 +780,7 @@ backdrop-filter: blur(25px);
       height: 100%;
       animation: loop1 20s linear infinite;
       gap: 50px;
+
       span {
         display: inline-block;
         width: auto;
@@ -667,9 +791,12 @@ backdrop-filter: blur(25px);
         font-weight: 600;
         letter-spacing: 0.05em;
         line-height: 1;
+        color: $white;
+        opacity: 0.2;
       }
     }
   }
+
   .ttl {
     text-align: center;
     color: $white;
@@ -677,8 +804,9 @@ backdrop-filter: blur(25px);
     font-weight: 700;
     letter-spacing: 0.15em;
     position: relative;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 26px;
+    margin-bottom: 24px;
+
     &::after {
       content: '';
       position: absolute;
@@ -694,6 +822,88 @@ backdrop-filter: blur(25px);
           transparent 2px 8px
         )
         1;
+    }
+  }
+
+  //.contact__btns .
+  &__btns {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 219px 486px;
+    gap: 15px 30px;
+
+    .tel {
+      a {
+        span {
+          font-family: $en-fonts;
+          letter-spacing: 0.02em;
+
+          &::before {
+            background-image: url(/assets/img/common/icon/icon_phone.svg);
+            width: 30px;
+            height: 27px;
+            top: 2px;
+          }
+        }
+      }
+    }
+
+    .entry {
+      grid-column-start: 1;
+      grid-row-start: 2;
+
+      .btn03__txt {
+        span {
+          &::before {
+            background-image: url(/assets/img/common/icon/icon_mail.svg);
+            width: 30px;
+            height: 22px;
+          }
+        }
+      }
+    }
+
+    .big {
+      grid-row: span 2 / span 2;
+      grid-column-start: 2;
+      grid-row-start: 1;
+
+      a {
+        min-height: 145px;
+        background-color: $white;
+        border: 1px solid $gray-100;
+        padding: 5px 70px 5px 30px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          right: 30px;
+          top: 50%;
+          transform: translateY(-50%);
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          background: url(/assets/img/common/icon/icon_arrow07.svg) no-repeat
+            center / 13px;
+          background-color: $brown-100;
+        }
+
+        span {
+          font-weight: 900;
+          font-size: 5.5rem;
+          color: $primary;
+          padding-left: 135px;
+          letter-spacing: 0.1em;
+
+          &::before {
+            width: 90px;
+            height: 90px;
+            background: url(/assets/img/common/icon/icon_send.svg) no-repeat
+              center / 50px;
+            background-color: $brown-100;
+          }
+        }
+      }
     }
   }
 }
