@@ -6,6 +6,9 @@
 ------------------------------------------------------------*/
 .btn01 {
   min-width: 171px;
+  @include sp {
+    min-width: 137.5px;
+  }
 
   //.btn01__txt .
   &__txt {
@@ -27,6 +30,12 @@
     letter-spacing: 0.1em;
     z-index: 1;
     border: 1px solid $gray-100;
+    @include sp {
+      font-size: 1.4rem;
+      line-height: calc(18.2 / 14);
+      min-height: 55px;
+      border-radius: 27.5px;
+    }
 
     &::before {
       position: absolute;

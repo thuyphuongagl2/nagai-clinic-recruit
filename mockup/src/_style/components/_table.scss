@@ -81,10 +81,16 @@
   //.table01__txt .
   &__txt {
     font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 1.4rem !important;
     letter-spacing: 0.1em;
     line-height: calc(26.25 / 14);
     margin-top: 8px;
+    @include tab-sm {
+      font-size: 1.2rem !important;
+    }
+    @include sp {
+      font-size: 1.4rem !important;
+    }
   }
 }
 

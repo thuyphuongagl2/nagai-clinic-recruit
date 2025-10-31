@@ -6,6 +6,7 @@
 .mv {
   position: relative;
   height: 100vh;
+  min-height: 600px;
 
   &::after {
     content: '';
@@ -30,6 +31,7 @@
     position: relative;
     margin-left: auto;
     height: 100vh;
+    min-height: 600px;
 
     img {
       width: 100%;
@@ -60,6 +62,10 @@
     @include tab {
       font-size: 3rem;
     }
+    @include sp {
+      font-size: 2.2rem;
+      text-shadow: 0;
+    }
   }
   //.mv__txt .
   &__txt {
@@ -70,6 +76,9 @@
     color: $brown-900;
     @include tab {
       font-size: 1.6rem;
+    }
+    @include sp {
+      font-size: 1.4rem;
     }
   }
 
@@ -87,6 +96,9 @@
   left: 0;
   bottom: 30px;
   max-width: 590px;
+  @include tab-sm {
+    bottom: 80px;
+  }
 
   //.newsbox__inner .
   &__inner {
@@ -123,6 +135,9 @@
   &__link {
     display: flex;
     align-items: center;
+    @include sp {
+      display: block;
+    }
   }
 
   //.newsbox__date .
@@ -146,6 +161,9 @@
     overflow: hidden;
     display: -webkit-box;
     margin-left: 8px;
+    @include sp {
+      font-size: 1.4rem;
+    }
   }
 
   .btn01 {
@@ -197,6 +215,9 @@
     padding-top: 59px;
     padding-left: 20px;
     z-index: 1;
+    @include sp {
+      flex-direction: column-reverse;
+    }
 
     &::before {
       content: '';
@@ -206,6 +227,11 @@
       width: 341px;
       height: 232px;
       background: url(/assets/img/common/cirle01.png) no-repeat center / 341px;
+      @include tab {
+        width: 241px;
+        background-size: 241px auto;
+        height: 172px;
+      }
     }
 
     &::after {
@@ -217,6 +243,9 @@
       width: calc((929 / 1280) * 100vw);
       height: calc(100% - 122px);
       border-radius: 0 15px 15px 0;
+      @include tab {
+        height: calc(100% - 50px);
+      }
     }
   }
 
@@ -254,7 +283,7 @@
 
   //.message__txt .
   &__txt {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 0.781vw + 0.8rem, 1.8rem);
     line-height: calc(36 / 18);
     letter-spacing: 0.13em;
     font-weight: 500;
@@ -277,6 +306,14 @@
     width: 583.5px;
     height: 660.5px;
     margin-top: 60px;
+    @include tab {
+      width: 383.5px;
+      height: 460.5px;
+    }
+    @include sp {
+      height: 271px;
+      width: 290px;
+    }
 
     img {
       width: 100%;
@@ -364,6 +401,7 @@
         letter-spacing: 0.15em;
         line-height: calc(21 / 70);
         position: relative;
+
         &::after {
           content: '';
           position: absolute;
@@ -387,8 +425,8 @@
 
     &::after {
       position: absolute;
-          top: -17px;
-    left: 27px;
+      top: -17px;
+      left: 27px;
       transform: translateY(-50%);
       content: attr(title);
       font-weight: 600;
@@ -438,6 +476,9 @@
       .reason__content {
         margin: 0 -30px 0 0;
         padding: 55px 50px 100px 181px;
+        @include tab-sm {
+          padding-left: 162px;
+        }
 
         &::before {
           right: auto;
@@ -480,6 +521,11 @@
       width: 220px;
       height: 220px;
       background: url(/assets/img/common/cirle07.png) no-repeat center / 220px;
+      @include tab-sm {
+        width: 180px;
+        height: 180px;
+        background-size: 180px;
+      }
     }
   }
 
@@ -520,6 +566,10 @@
     flex-shrink: 0;
     margin-left: -30px;
     position: relative;
+    @include tab-sm {
+      padding: 55px 149px 100px 50px;
+      max-width: 539px;
+    }
 
     &::before {
       content: '';
@@ -546,6 +596,14 @@
           transparent 2px 8px
         )
         1;
+        @include tab-sm {
+          font-size: 2rem;
+        }
+    }
+    .txt01 {
+      @include tab-sm {
+        font-size: 1.4rem;
+      }
     }
   }
 
@@ -596,6 +654,11 @@
     bottom: -36px;
     background: url(/assets/img/common/cirle06.png) no-repeat center / 398px;
     z-index: -1;
+    @include tab-sm {
+      width: 298px;
+      // height: 187px;
+      background-size: 298px ;
+    }
   }
 
   .title01 {
@@ -607,6 +670,11 @@
         left: 210px;
         @include lg {
           font-size: 11rem;
+        }
+        @include tab {
+          font-size: 9rem;
+          top: -40px;
+          left: 160px;
         }
       }
     }
@@ -627,6 +695,9 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 45px;
+    @include tab {
+      padding: 0 25px;
+    }
   }
 
   //.infor__inner .
@@ -663,6 +734,9 @@
     @include lg {
       padding: 60px 30px;
     }
+    @include tab-sm {
+      padding: 40px 20px;
+    }
   }
 
   //.infor__logo .
@@ -680,6 +754,10 @@
     text-align: center;
     padding-left: 70px;
     margin: 7px 0 21px;
+    @include tab-sm {
+      padding-left: 0;
+      font-size: 1.4rem;
+    }
   }
 
   .tel {
@@ -688,6 +766,9 @@
     a {
       min-height: 90px;
       background-color: $brown-100;
+      @include tab-sm {
+        min-height: 80px;
+      }
 
       &::after {
         content: '';
@@ -712,6 +793,10 @@
         letter-spacing: 0.1em;
         line-height: calc(53.07 / 39);
         padding-left: 89px;
+        @include tab {
+          font-size: 2.8rem;
+          padding-left: 65px;
+        }
 
         &::before {
           width: 60px;
@@ -719,6 +804,12 @@
           background: url(/assets/img/common/icon/icon_phone.svg) no-repeat
             center / 30px;
           background-color: $white;
+          @include tab-sm {
+            width: 50px;
+            height: 50px;
+            top: -5px;
+            background-size: 25px;
+          }
         }
       }
     }
@@ -729,6 +820,16 @@
     display: flex;
     margin-top: 24px;
     gap: 0 15px;
+    .btn01 {
+      &:last-child {
+        @include tab-sm {
+          a {
+            padding: 5px 25px 5px 36px;
+            letter-spacing: 0.04em;
+          }
+        }
+      }
+    }
   }
 }
 /*------------------------------------------------------------
@@ -793,6 +894,9 @@
         line-height: 1;
         color: $white;
         opacity: 0.2;
+        @include tab-sm {
+          font-size: 14rem;
+        }
       }
     }
   }
@@ -806,6 +910,9 @@
     position: relative;
     padding-bottom: 26px;
     margin-bottom: 24px;
+    @include tab-sm {
+      font-size: 3.2rem;
+    }
 
     &::after {
       content: '';
@@ -831,6 +938,7 @@
     display: grid;
     grid-template-columns: 219px 486px;
     gap: 15px 30px;
+    align-items: center;
 
     .tel {
       a {
@@ -873,6 +981,9 @@
         background-color: $white;
         border: 1px solid $gray-100;
         padding: 5px 70px 5px 30px;
+        @include tab-sm {
+          min-height: 135px;
+        }
 
         &::after {
           content: '';
@@ -894,6 +1005,9 @@
           color: $primary;
           padding-left: 135px;
           letter-spacing: 0.1em;
+          @include tab-sm {
+            font-size: 5rem;
+          }
 
           &::before {
             width: 90px;
@@ -901,6 +1015,11 @@
             background: url(/assets/img/common/icon/icon_send.svg) no-repeat
               center / 50px;
             background-color: $brown-100;
+            @include tab-sm {
+            width: 80px;
+            height: 80px;
+            background-size: 40px;
+          }
           }
         }
       }

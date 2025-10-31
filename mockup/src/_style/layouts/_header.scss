@@ -37,12 +37,17 @@ body {
     top: 0;
     left: 0;
     z-index: 9000;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out;
     @include lg {
       padding: 0 0 0 2.1%;
     }
     @include tab {
       padding: 0 4%;
+      align-items: center;
+
+      &.is-active {
+        background-color: $white;
+      }
     }
   }
 
@@ -52,6 +57,9 @@ body {
     align-items: center;
     margin-bottom: 12px;
     pointer-events: all;
+    @include tab {
+      margin: 0;
+    }
 
     .note {
       color: $white;
@@ -66,6 +74,9 @@ body {
       @include lg {
         font-size: 1.2rem;
       }
+      @include sp {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -76,6 +87,9 @@ body {
     @include lg {
       width: 290px;
       margin-right: 10px;
+    }
+    @include sp {
+      width: 183px;
     }
   }
 
@@ -122,6 +136,10 @@ body {
     border-radius: 36.5px 0 0 36.5px;
     padding: 14px 48px 7px;
     pointer-events: all;
+    @include tab {
+      padding: 0;
+      border-radius: 0;
+    }
     // flex: 1;
   }
 }
@@ -155,6 +173,9 @@ body {
     position: relative;
     transition: 0.3s ease;
     text-align: center;
+    @include tab {
+      text-align: left;
+    }
 
     .jp {
       font-size: 1.6rem;
@@ -166,6 +187,9 @@ body {
       @include lg {
         font-size: 1.4rem;
       }
+      @include tab {
+        display: inline;
+      }
     }
 
     .en {
@@ -176,6 +200,9 @@ body {
       letter-spacing: 0;
       line-height: calc(12 / 10);
       display: block;
+      @include tab {
+        display: inline;
+      }
     }
 
   }
@@ -368,7 +395,6 @@ body {
     // transition: 0.3s ease;
     @include tab {
       padding-bottom: 0;
-      padding: 0 10px;
       font-size: 1.6rem;
     }
 

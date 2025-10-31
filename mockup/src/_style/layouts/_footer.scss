@@ -28,6 +28,9 @@
       flex-wrap: wrap;
       gap: 30px;
     }
+    @include sp {
+      display: none;
+    }
   }
 
   //.footer__info .

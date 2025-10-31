@@ -9,9 +9,8 @@ $(document).ready(function () {
   ====================================== */
   $(document).on('click', '.js-menu', function() {
     $(this).toggleClass('active')
-    $(".header__content").toggleClass("is-active");
+    $(".header__content, .header__inner").toggleClass("is-active");
     $('body').toggleClass('lock');
-    $('.js-scroll-to-top').toggleClass('is-active');
     if ($(this).hasClass('active')) {
       $('.header').addClass('is-fixed');
     } else {

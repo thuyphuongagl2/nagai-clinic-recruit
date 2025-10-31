@@ -57,6 +57,11 @@
         width: 197px;
         height: 275px;
         background-image: url(/assets/img/common/illust03.svg);
+        @include tab {
+          width: 137px;
+          height: 215px;
+          right: 40%;
+        }
       }
     }
 
@@ -92,6 +97,11 @@
       width: 160px;
       height: 231px;
       background: url(/assets/img/common/illust02.svg) no-repeat center;
+      @include tab {
+        width: 140px;
+        height: 210px;
+        right: 90px;
+      }
     }
   }
 
@@ -104,6 +114,10 @@
     @include lg {
       width: 450px;
       height: 450px;
+    }
+    @include tab-sm {
+      width: 290px;
+      height: 290px;
     }
 
     &::after {
@@ -120,6 +134,11 @@
         height: 420px;
         background-size: 420px;
       }
+      @include tab-sm {
+      width: 270px;
+      height: 270px;
+       background-size: 270px;
+    }
     }
 
     img {

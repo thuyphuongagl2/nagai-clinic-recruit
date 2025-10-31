@@ -15,6 +15,12 @@
     position: relative;
     padding-left: 28px;
     line-height: calc(59.09 / 37);
+    @include tab {
+      font-size: 2.6rem;
+    }
+    @include sp {
+      font-size: 2.8rem;
+    }
 
     &::before {
       content: '';
@@ -41,6 +47,13 @@
       text-align: center;
       color: $white;
       z-index: -1;
+      @include tab {
+        font-size: 10rem;
+        left: -30px;
+      }
+      @include sp {
+        font-size: 5.75rem;
+      }
     }
   }
 
@@ -59,6 +72,13 @@
     .jp {
       font-size: 4rem;
       display: block;
+      @include tab {
+        font-size: 3rem;
+      }
+      @include sp {
+        font-size: 2.8rem;
+        letter-spacing: 0.01em;
+      }
     }
   }
 }
