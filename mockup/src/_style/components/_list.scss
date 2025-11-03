@@ -7,6 +7,10 @@
   display: flex;
   position: relative;
   z-index: 1;
+  @include sp {
+    max-width: 335px;
+    margin: 0 auto;
+  }
 
   &::after {
     content: '';
@@ -24,6 +28,11 @@
     @include tab-sm {
       width: 456px;
       height: 171px;
+    }
+    @include sp {
+      background-image: url(/assets/img/common/bg07-sp.png);
+      width: 335px;
+      height: 187px;
     }
   }
 
@@ -49,11 +58,21 @@
       max-width: 171px;
       height: 147px;
     }
+    @include sp {
+      padding: 19px 20px 19px 25px;
+
+      &:nth-child(odd) {
+        margin-top: 46px;
+      }
+    }
 
     &:not(:last-child) {
       margin-right: -38px;
       @include tab-sm {
         margin-right: -25px;
+      }
+      @include sp {
+        margin-right: -41px;
       }
     }
   }
@@ -92,6 +111,9 @@
       @include tab-sm {
         font-size: 1.4rem;
       }
+      @include sp {
+        padding: 3px 2px 2px;
+      }
     }
   }
 
@@ -118,6 +140,20 @@
     }
     @include sp {
       font-size: 1.4rem;
+      margin-top: 7px;
+      padding-top: 5px;
+      border-width: 2px;
+      border-image: repeating-linear-gradient(
+          to right,
+          $brown-200 0 2px,
+          transparent 2px 7px
+        )
+        1;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      display: -webkit-box;
+      line-height: calc(21 / 14);
     }
   }
 }

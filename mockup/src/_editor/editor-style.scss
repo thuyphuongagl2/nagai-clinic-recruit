@@ -17,6 +17,23 @@ section {
   margin-top: 20px;
 }
 
+mark {
+  position: relative;
+  background-color: transparent;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    background-color: #ff0;
+    height: 50%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+  }
+}
+
 p {
   border: 1px solid #989696;
   padding: 10px;
@@ -438,124 +455,62 @@ table td {
 }
 
 .topicflow {
+  position: relative;
+  padding: 67px;
+  transition: all 0.3s ease-in-out;
+  background-color: $brown-100;
+  border-radius: 15px;
+
+  //.topicflow__item .
+  &__item {
     position: relative;
-    margin-top: 43px;
-    counter-reset: section;
-  
-    &::before {
-      content: "";
-      border-left: 3px dashed $primary;
-      position: absolute;
-      height: 100%;
-      left: 120px;
-      top: 0;
-      z-index: 1;
-    }
-    
-    //.topicflow__box .
-    &__box {
-      width: 100%;
-      background: #ff1717;
-      padding: 45px 66px 35px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      border-radius: 20px;
-  
-      &:not(:last-child) {
-        margin-bottom: 59px;
-      }
-  
-      &:first-child, &:last-child {
-          &::before {
-              content: "";
-              width: 10px;
-              height: calc(50% - 55px);
-              background: #ff1717;
-              position: absolute;
-              left: 118px;
-              z-index: 2; 
-          }
-      }
-  
-      &:first-child {
-          &::before {
-              top: 0;
-          }
-      }
-  
-      &:last-child {
-          &::before {
-              bottom: 0;
-          }
-      }
-    }
-  
-    //.topicflow__count .
-    &__count {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: auto;
-      height: 138px;
-      background: #ff1717;
-      z-index: 2;
-      border-radius: 50%;
-  
-      &::before {
-          content: "Step";
-          font-family: $en-fonts;
-          position: absolute;
-          top: 9px;
-          left: -14px;
-          color: $primary;
-          font-size: 3.57rem;
-          font-weight: 400;
-          line-height: 1;
-          transform: rotate(-28deg);
-          z-index: 2;
-      }
-  
-      span {
-        width: 115px;
-        height: 115px;
-        border-radius: 50%;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 5.21rem;
-        color: $primary;
-        font-family: $en-fonts;
-        font-weight: 300;
-        position: relative;
-        background-color: #fff;
-  
-        &::after {
-          counter-increment: section;
-          content: "0"counter(section);
-        }
-      }
-    }
-  
-    //.topicflow__inner .
-    &__inner {
-      flex: 1;
-      position: relative;
-      margin-left: 40px;
-    }
-  
-    //.topicflow__title .
-    &__title {
-      color: $primary;
-      font-weight: 500;
-      font-size: 2.2rem;
-      letter-spacing: 0.15em;
-      font-feature-settings: "palt";
-      margin-bottom: 15px;
+    padding: 66px 49px 30px;
+    background-color: $white;
+    border-radius: 10px;
+
+
+    &:not(:last-child) {
+      margin-bottom: 32px;
     }
   }
+
+  //.topicflow__step .
+  &__step {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .txt {
+      background-color: $primary;
+      color: $white;
+      font-family: $en-fonts;
+      font-size: 2.4rem;
+      border-radius: 10px 0 5px;
+      margin-bottom: 0;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      padding: 9px 21px 9px 29px;
+      min-width: 155px;
+      text-align: center;
+    }
+  }
+
+  //.topicflow__ttl .
+  &__ttl {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  //.topicflow__txt .
+  &__txt {
+    margin-bottom: 0;
+  }
+}
 
 .topic__heading {
   font-weight: 500;

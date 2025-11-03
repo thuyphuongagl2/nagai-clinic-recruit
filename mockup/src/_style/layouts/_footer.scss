@@ -239,14 +239,42 @@
   z-index: 5;
   padding: 0 30px;
   transition: all 0.3s ease-in-out;
+  @include sp {
+    padding: 0;
+    left: 0;
+  }
 
   ul {
     display: flex;
     align-items: flex-end;
     gap: 5px;
+    @include sp {
+      gap: 0;
+      width: 100%;
+      height: 60px;
+      border-radius: 7.5px 7.5px 0 0;
+      overflow: hidden;
+    }
 
     li {
-      a {
+      @include sp {
+        width: 20.95%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        &:not(:last-child) {
+          a,
+          .btn_modal {
+            border-right: 0;
+          }
+        }
+      }
+
+      a,
+      .btn_modal {
         background-color: $white;
         border-radius: 10px 10px 0 0;
         display: flex;
@@ -256,9 +284,22 @@
         cursor: pointer;
         border: 1px solid $gray-100;
         position: relative;
+        @include sp {
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 0;
+          min-height: 60px;
+          padding: 2px 6px;
+          width: 100%;
+          border-bottom: 0;
+        }
 
         &::after {
           @include ic-arrow(18px);
+          @include sp {
+            content: none;
+          }
         }
 
         .icon {
@@ -271,6 +312,12 @@
           font-weight: 500;
           letter-spacing: 0.1em;
           margin-left: 10px;
+          @include sp {
+            font-size: 1.1rem;
+            margin-left: 0;
+            text-align: center;
+            margin-top: 3px;
+          }
         }
       }
     }
@@ -278,24 +325,43 @@
     .tel {
       a {
         padding: 10px 42px 10px 20px;
+        @include sp {
+          padding: 5px 2px;
+          border-radius: 7.5px 0 0;
+        }
 
         .icon {
           height: 18px;
           margin-bottom: 4px;
+          @include sp {
+            height: 20px;
+          }
         }
 
         .txt {
           font-family: $en-fonts;
           letter-spacing: 0.02em;
+          @include sp {
+            letter-spacing: 0.1em;
+          }
         }
       }
     }
 
     .entry {
+      @include sp {
+        width: 150px;
+      }
+
       a {
         min-height: 80px;
         min-width: 251px;
         border-color: $primary;
+        @include sp {
+          min-width: 150px;
+          min-height: 60px;
+          border-radius: 0 7.5px 0 0;
+        }
 
         &::after {
           right: 14px;
@@ -309,6 +375,9 @@
 
         p {
           margin-left: 0;
+          @include sp {
+            margin: 0;
+          }
         }
 
         span {
@@ -318,6 +387,10 @@
           letter-spacing: 0.1em;
           position: relative;
           padding-left: 54px;
+          @include sp {
+            font-size: 2.2rem;
+            padding-left: 49px;
+          }
 
           &::before {
             content: '';
@@ -330,9 +403,56 @@
             background: url(/assets/img/common/icon/icon_send.svg) no-repeat
               center / 25px;
             background-color: $brown-100;
+            @include sp {
+              width: 40px;
+              height: 40px;
+              background-size: 22px;
+              top: -4px;
+            }
           }
         }
       }
     }
+
+    .mail {
+      @include sp {
+        a {
+          .txt {
+            margin-top: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  .map {
+    .btn_modal {
+      .icon {
+        width: 18px;
+        height: 20px;
+      }
+    }
+
+    .close {
+      display: none;
+    }
+
+    &.active {
+      .open {
+        display: none;
+      }
+
+      .close {
+        display: block;
+      }
+    }
+  }
+}
+
+.modal-map {
+  &.active {
+    transition: 0.3s ease all;
+    opacity: 1;
+    visibility: visible;
   }
 }

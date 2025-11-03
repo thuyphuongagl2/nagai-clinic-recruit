@@ -112,7 +112,7 @@
       border: 1px solid $gray-100;
       padding: 20px 10px;
       font-size: 1.6rem;
-      font-weight: 500;
+      font-weight: 700;
       letter-spacing: 0;
       line-height: 1.4;
       color: $primary;
@@ -131,7 +131,7 @@
       text-align: center;
       // width: 300px;
       min-width: 83px;
-      background-color: $gray-100;
+      background-color: $brown-100;
       width: auto;
 
       @include sp {
@@ -140,7 +140,7 @@
     }
 
     td {
-      font-weight: 400;
+      font-weight: 500;
       line-height: 1.5;
       letter-spacing: 0.05em;
       color: $brown-900;

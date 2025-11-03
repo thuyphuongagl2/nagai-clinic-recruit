@@ -6,40 +6,90 @@
 .mv01 {
   position: relative;
 
+  &::before {
+    content: '';
+    position: absolute;
+    left: 39.7%;
+    top: 115px;
+    background: url(/assets/img/common/cirle03.png) no-repeat center / 55px;
+    width: 55px;
+    height: 55px;
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: -126px;
+    bottom: 0;
+    background: url(/assets/img/common/cirle10.png) no-repeat center / 220px;
+    width: 220px;
+    height: 220px;
+  }
+
+  //.mv01__inner  .
+  &__inner {
+    @include md {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 10px;
+    }
+    position: relative;
+  }
+
   //.mv01__img .
   &__img {
-    @include tab {
-      height: 300px;
-    }
+    max-width: calc(50% + 85px);
+    width: 100%;
+    padding-top: 30.2%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
     @include sp {
-      height: 250px;
+      padding-top: 48%;
+      margin-top: 15px;
+      margin-left: auto;
+      max-width: calc(100% - 20px);
+      border-radius: 10px 0 0 10px;
     }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
   }
 
-  //.mv01__textbox .
-  &__textbox {
-    position: absolute;
-    left: 100px;
-    bottom: 40px;
+  //.mv01__content .
+  &__content {
+    @include md {
+      padding: 30px 20px 0;
+      max-width: 1180px;
+      position: absolute;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 1;
+    }
     @include sp {
-      left: 20px;
-      bottom: 25px;
-      padding-right: 20px;
+      padding: 5% 20px 0;
     }
   }
 
   //.mv01__title .
   &__title {
-    font-size: 4.5rem;
-    font-weight: 500;
+    font-size: 4.4rem;
+    font-weight: 700;
     letter-spacing: 0.1em;
-    color: $white;
+    color: $brown-900;
     @include sp {
       font-size: 2.5rem;
     }
@@ -56,7 +106,7 @@
     Main Content
 ------------------------------------------------------------*/
 .maincontent {
-  padding-top: 90px;
+  padding-top: 115px;
   padding-bottom: 70px;
   position: relative;
   z-index: 1;
@@ -88,6 +138,9 @@
 }
 
 .under {
+  @include sp {
+    padding-top: 60px;
+  }
   .section {
     padding-top: 55px;
     @include sp {
@@ -143,5 +196,3 @@
     }
   }
 }
-
-

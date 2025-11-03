@@ -3,13 +3,8 @@
     Faq
 ------------------------------------------------------------*/
 .faq {
-  background: #fff;
-  border-radius: 10px;
   transition: all 0.3s;
-
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
+    border-bottom: 1px solid $gray-100;
 
   &.is-open {
     .faq__heading {
@@ -21,18 +16,12 @@
 
   //.faq__list .
   &__list {
-    background-color: #3a719e;
-    padding: 70px;
-    border-radius: 20px;
-    @include sp {
-      padding: 20px;
-      border-radius: 10px;
-    }
+    border-top: 1px solid $gray-100;
   }
 
   //.faq__heading .
   &__heading {
-    padding: 26px 70px 25px 28px;
+    padding: 32px 70px 34px 38px;
     position: relative;
     cursor: pointer;
     @include sp {
@@ -52,7 +41,7 @@
 
     &::before {
       width: 2px;
-      height: 15px;
+      height: 16px;
       right: 46px;
       transition: all 0.3s;
       @include sp {
@@ -62,7 +51,7 @@
     }
 
     &::after {
-      width: 15px;
+      width: 16px;
       height: 2px;
       right: 39px;
       @include sp {
@@ -76,27 +65,26 @@
   .faq__ttl {
     font-size: 2rem;
     line-height: 1.5;
-    font-weight: 500;
-    letter-spacing: 0.15em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     position: relative;
-    padding-left: 51px;
+    padding-left: 41px;
+    color: $brown-900;
     @include sp {
       font-size: 1.5rem;
       padding-left: 38px;
     }
 
     &::before {
-      content: 'Q.';
-      font-size: 3rem;
+      content: 'Q';
+      font-size: 2.8rem;
       line-height: 1;
-      color: #3a719e;
-      font-weight: 700;
+      color: $primary;
+      font-weight: 600;
       font-family: $en-fonts;
       position: absolute;
-      top: 50%;
+      top: -2px;
       left: 0;
-      transform: translate(0, -50%);
-      margin-top: -3px;
       @include sp {
         font-size: 2.4rem;
         margin-top: -1px;
@@ -107,24 +95,13 @@
   //.faq__info .
   &__info {
     display: none;
-    padding: 23px 40px 32px;
+    padding: 22px 24px 21px 40px;
     position: relative;
+    background-color: $brown-100;
+    border-radius: 10px;
+    margin-bottom: 30px;
     @include sp {
       padding: 16px 25px 24px 20px;
-    }
-
-    &::before {
-      content: '';
-      width: calc(100% - 120px);
-      height: 1px;
-      border-bottom: 1px solid #333;
-      position: absolute;
-      top: 0;
-      left: 80px;
-      @include sp {
-        width: calc(100% - 40px);
-        left: 18px;
-      }
     }
   }
 
@@ -132,28 +109,26 @@
   .faq__txt {
     font-size: 1.6rem;
     line-height: 2;
-    color: #333;
+    color: $brown-900;
     position: relative;
-    padding-left: 51px;
+    padding-left: 38px;
     letter-spacing: 0.1em;
-    font-weight: 400;
+    font-weight: 500;
     @include sp {
       padding-left: 40px;
       font-size: 1.5rem;
     }
 
     &::before {
-      content: 'A.';
-      font-size: 3rem;
+      content: 'A';
+      font-size: 2.8rem;
       line-height: 1;
       color: $primary;
-      font-weight: 700;
+      font-weight: 600;
       position: absolute;
       font-family: $en-fonts;
-      top: 50%;
+      top: 7px;
       left: 0;
-      transform: translate(0, -50%);
-      margin-top: -3px;
       @include sp {
         font-size: 2.4rem;
       }

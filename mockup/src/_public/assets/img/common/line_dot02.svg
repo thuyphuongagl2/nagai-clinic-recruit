@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 3">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-dasharray: .01 7.07;
+      }
+
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #e2d6bc;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="_レイアウト" data-name="レイアウト">
+    <g>
+      <line class="cls-2" x1="1.5" y1="1.5" x2="1.5" y2="1.5"/>
+      <line class="cls-1" x1="8.57" y1="1.5" x2="89.96" y2="1.5"/>
+      <line class="cls-2" x1="93.5" y1="1.5" x2="93.5" y2="1.5"/>
+    </g>
+  </g>
+</svg>

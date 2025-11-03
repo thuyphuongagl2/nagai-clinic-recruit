@@ -174,6 +174,8 @@
     width: 368px;
     height: 552px;
     flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 20px;
     @include tab {
       width: 268px;
       height: 452px;
@@ -203,32 +205,19 @@
 
   .block04__ttl {
     margin: 40px 0 22px;
-    padding-left: 15px;
-    background: none;
     @include tab {
       margin: 20px 0 10px;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      left: 0;
-      top: -8px;
-      background: url(/assets/img/common/square.png) no-repeat center;
-      z-index: -1;
     }
   }
 
   //.block04__boxname .
   &__boxname {
-    font-weight: 500;
-
     .note {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       line-height: 1.11;
       margin-bottom: 6px;
+      font-weight: 400;
+      color: $brown-900;
     }
 
     .name {
@@ -238,24 +227,25 @@
       line-height: 1.2;
 
       .pos {
-        font-size: 1.4rem;
-        letter-spacing: 0.015em;
-        margin-right: 17px;
+        font-size: 1.2rem;
+        letter-spacing: 0.05em;
+        margin-right: 12px;
       }
 
       .jp {
-        font-size: 2.8rem;
-        letter-spacing: 0.015em;
-        margin-right: 12px;
+        font-size: 2rem;
+        letter-spacing: 0.05em;
+        font-weight: 500;
+        margin-right: 10px;
       }
 
       .en {
         font-family: $en-fonts;
-        font-weight: 400;
-        font-size: 1.3rem;
+        font-weight: 500;
+        font-size: 1.2rem;
         letter-spacing: 0;
         line-height: 1;
-        text-transform: uppercase;
+        color: $primary;
       }
     }
   }

@@ -7,6 +7,9 @@
   position: relative;
   height: 100vh;
   min-height: 600px;
+  @include sp {
+    height: auto;
+  }
 
   &::after {
     content: '';
@@ -17,12 +20,25 @@
     background: url(/assets/img/common/bg01.png) no-repeat center top / 100%
       100%;
     z-index: -1;
+    @include sp {
+      height: 615.5px;
+      bottom: auto;
+      top: 128px;
+      background-image: url(/assets/img/common/bg01-sp.png);
+    }
   }
 
   //.mv__wrap .
   &__wrap {
     position: relative;
     padding-right: 10px;
+    @include sp {
+      height: 100vh;
+      padding: 0 20px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
   }
 
   //.mv__img .
@@ -32,6 +48,11 @@
     margin-left: auto;
     height: 100vh;
     min-height: 600px;
+    @include sp {
+      height: 437px;
+      width: 100%;
+      min-height: 437px;
+    }
 
     img {
       width: 100%;
@@ -45,6 +66,14 @@
     top: 18%;
     left: 5.5%;
     position: absolute;
+    @include sp {
+      left: 50%;
+      top: 12%;
+      text-align: center;
+      padding: 0 20px;
+      transform: translateX(-50%);
+      width: 100%;
+    }
   }
 
   //.mv__ttl .
@@ -64,7 +93,8 @@
     }
     @include sp {
       font-size: 2.2rem;
-      text-shadow: 0;
+      text-shadow: none;
+      margin-bottom: 3px;
     }
   }
   //.mv__txt .
@@ -86,6 +116,10 @@
   &__box {
     margin-top: 38px;
     margin-left: -21px;
+    @include sp {
+      margin-left: 0;
+      margin-top: 204px;
+    }
   }
 }
 /*------------------------------------------------------------
@@ -99,6 +133,13 @@
   @include tab-sm {
     bottom: 80px;
   }
+  @include sp {
+    position: relative;
+    bottom: auto;
+    margin-top: 39px;
+    z-index: 2;
+    padding-right: 10px;
+  }
 
   //.newsbox__inner .
   &__inner {
@@ -108,6 +149,9 @@
     align-items: center;
     position: relative;
     padding: 17px 20px 16px 50px;
+    @include sp {
+      padding: 10px 10px 10px 20px;
+    }
   }
 
   //.newsbox__head .
@@ -129,6 +173,9 @@
   //.newsbox__info .
   &__info {
     margin-right: 20px;
+    @include sp {
+      margin-top: 4px;
+    }
   }
 
   //.newsbox__link .
@@ -163,16 +210,32 @@
     margin-left: 8px;
     @include sp {
       font-size: 1.4rem;
+      margin-left: 0;
+      line-height: 1.5;
     }
   }
 
   .btn01 {
     min-width: 151px;
+    @include sp {
+      min-width: 113.5px;
+    }
 
     a {
       min-height: 40px;
       font-size: 1.4rem;
       padding: 5px 32px 5px 36px;
+      @include sp {
+        padding: 8px 28px 9px 31px;
+
+        &::before {
+          left: 14px;
+        }
+
+        &::after {
+          right: 12px;
+        }
+      }
     }
   }
 }
@@ -182,6 +245,10 @@
 .message {
   padding: 152px 0 1px;
   position: relative;
+  @include sp {
+    padding: 85px 0 0;
+    margin-top: -25px;
+  }
 
   &::before {
     content: '';
@@ -192,6 +259,10 @@
     height: 247px;
     background: url(/assets/img/common/bg02.png) no-repeat center bottom / 100%
       100%;
+      @include sp {
+        background-image: url(/assets/img/common/bg02-sp.png);
+        height: 75.5px;
+      }
   }
 
   &::after {
@@ -596,10 +667,11 @@
           transparent 2px 8px
         )
         1;
-        @include tab-sm {
-          font-size: 2rem;
-        }
+      @include tab-sm {
+        font-size: 2rem;
+      }
     }
+
     .txt01 {
       @include tab-sm {
         font-size: 1.4rem;
@@ -657,7 +729,7 @@
     @include tab-sm {
       width: 298px;
       // height: 187px;
-      background-size: 298px ;
+      background-size: 298px;
     }
   }
 
@@ -820,6 +892,7 @@
     display: flex;
     margin-top: 24px;
     gap: 0 15px;
+
     .btn01 {
       &:last-child {
         @include tab-sm {
@@ -1016,10 +1089,10 @@
               center / 50px;
             background-color: $brown-100;
             @include tab-sm {
-            width: 80px;
-            height: 80px;
-            background-size: 40px;
-          }
+              width: 80px;
+              height: 80px;
+              background-size: 40px;
+            }
           }
         }
       }
