@@ -29,9 +29,12 @@
   }
 
   //.mv__wrap .
-  &__wrap {
+  &__wrapslide {
     position: relative;
     padding-right: 10px;
+    overflow: hidden;
+    height: 100vh;
+    min-height: 600px;
     @include sp {
       height: 100vh;
       padding: 0 20px;
@@ -41,18 +44,36 @@
     }
   }
 
+  //.mv__slide .
+  &__slide {
+    // animation: scroll 30s linear infinite;
+    // display: flex;
+    // flex-direction: column;
+
+    position: relative;
+    height: 100%;
+    // height: calc(250px * 14);
+    width: calc(50% + 85px);
+    margin-left: auto;
+    @include sp {
+      width: 100%;
+      height: 437px;
+      min-height: 437px;
+      overflow: hidden;
+    }
+  }
+
+  &__track {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 40s linear infinite;
+    gap: 15px;
+  }
+
   //.mv__img .
   &__img {
-    width: calc(50% + 85px);
+    width: 100%;
     position: relative;
-    margin-left: auto;
-    height: 100vh;
-    min-height: 600px;
-    @include sp {
-      height: 437px;
-      width: 100%;
-      min-height: 437px;
-    }
 
     img {
       width: 100%;
@@ -248,6 +269,7 @@
   @include sp {
     padding: 85px 0 0;
     margin-top: -25px;
+    background-color: $brown-100;
   }
 
   &::before {
@@ -259,10 +281,10 @@
     height: 247px;
     background: url(/assets/img/common/bg02.png) no-repeat center bottom / 100%
       100%;
-      @include sp {
-        background-image: url(/assets/img/common/bg02-sp.png);
-        height: 75.5px;
-      }
+    @include sp {
+      background-image: url(/assets/img/common/bg02-sp.png);
+      height: 75.5px;
+    }
   }
 
   &::after {
@@ -274,6 +296,11 @@
     width: 100%;
     height: calc(100% - 247px);
     z-index: -1;
+    @include sp {
+      top: 75px;
+      height: calc(100% - 75px);
+      z-index: 0;
+    }
   }
 
   //.message__inner .
@@ -288,6 +315,9 @@
     z-index: 1;
     @include sp {
       flex-direction: column-reverse;
+      margin-top: -2px;
+      padding-top: 40px;
+      padding-bottom: 40px;
     }
 
     &::before {
@@ -303,6 +333,15 @@
         background-size: 241px auto;
         height: 172px;
       }
+      @include sp {
+        width: 55px;
+        height: 55px;
+        background: url(/assets/img/common/cirle03.png) no-repeat center / 55px;
+        right: auto;
+        left: 31px;
+        top: 62px;
+        z-index: 1;
+      }
     }
 
     &::after {
@@ -317,6 +356,10 @@
       @include tab {
         height: calc(100% - 50px);
       }
+      @include sp {
+        width: calc(100% - 20px);
+        height: 100%;
+      }
     }
   }
 
@@ -330,6 +373,11 @@
       margin: 0 36px 0 0;
       width: calc((542 / 768) * 100vw);
     }
+    @include sp {
+      margin: 31px 0 0;
+      width: 100%;
+      padding-right: 40px;
+    }
 
     &::before {
       content: '';
@@ -339,6 +387,14 @@
       width: 106px;
       height: 192px;
       background: url(/assets/img/common/illust01.svg) no-repeat center;
+      @include sp {
+        width: 79px;
+        height: 143px;
+        right: auto;
+        left: 0;
+        top: -174px;
+        transform: scaleX(-1);
+      }
     }
 
     &::after {
@@ -349,6 +405,12 @@
       width: 110px;
       height: 110px;
       background: url(/assets/img/common/cirle02.png) no-repeat center / 110px;
+      @include sp {
+        bottom: auto;
+        top: -82px;
+        right: -18px;
+        z-index: 1;
+      }
     }
   }
 
@@ -360,12 +422,31 @@
     font-weight: 500;
     color: $brown-900;
     margin-bottom: 32px;
+    @include sp {
+      font-size: 1.6rem;
+      line-height: calc(32 / 16);
+      letter-spacing: 0.1em;
+      text-align: justify;
+      margin-bottom: 23px;
+    }
   }
 
   //.message__btns .
   &__btns {
     display: flex;
     gap: 15px;
+    @include sp {
+      gap: 10px;
+      position: relative;
+
+      .btn01 {
+        &:last-child {
+          .btn01__txt {
+            width: 167.5px;
+          }
+        }
+      }
+    }
   }
 
   //.message__img .
@@ -383,7 +464,11 @@
     }
     @include sp {
       height: 271px;
-      width: 290px;
+      width: 291px;
+      margin-top: 0;
+      mask-image: url(/assets/img/common/path01-sp.png);
+      margin-left: auto;
+      z-index: 1;
     }
 
     img {
@@ -400,12 +485,30 @@
   position: relative;
   padding: 0 0 100px;
   background-color: $brown-200;
+  @include sp {
+    padding-top: 62px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -113px;
+      right: -100px;
+      width: 220px;
+      height: 220px;
+      background: url(/assets/img/common/cirle10.png) no-repeat center / 220px;
+    }
+  }
 
   //.interview__head .
   &__head {
     display: flex;
     margin-bottom: 44px;
     gap: 0 20px;
+    @include sp {
+      gap: 0 13px;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
   }
 
   //.interview__slide .
@@ -435,9 +538,17 @@
   .btn01 {
     width: 177px;
     margin: -34px auto 0;
+    @include sp {
+      width: 157.5px;
+      min-width: auto;
+      margin: -28px auto 0;
+    }
 
     .btn01__txt {
       padding-right: 30px;
+      @include sp {
+        padding: 5px 28px 5px 35px;
+      }
     }
   }
 
@@ -451,9 +562,15 @@
     position: relative;
     z-index: 2;
     margin-top: -26px;
+    @include sp {
+      margin-top: -32px;
+    }
 
     .logo {
       width: 598px;
+      @include sp {
+        width: 311px;
+      }
     }
 
     .txt {
@@ -463,6 +580,9 @@
       line-height: calc(21 / 40);
       color: $brown-900;
       text-align: right;
+      @include sp {
+        font-size: 2.3rem;
+      }
 
       span {
         color: $primary;
@@ -472,6 +592,9 @@
         letter-spacing: 0.15em;
         line-height: calc(21 / 70);
         position: relative;
+        @include sp {
+          font-size: 4rem;
+        }
 
         &::after {
           content: '';
@@ -484,6 +607,10 @@
           border-radius: 50%;
           background-color: $white;
           z-index: -1;
+          @include sp {
+            width: 53px;
+            height: 53px;
+          }
         }
       }
     }
@@ -508,12 +635,26 @@
       text-align: center;
       color: #fff;
       z-index: -1;
+      @include sp {
+        font-size: 7.539rem;
+        left: 2px;
+        top: -11px;
+      }
     }
   }
 
   //.reason__list .
   &__list {
     margin-top: 85px;
+    position: relative;
+  display: grid;
+
+    > * {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+    @include sp {
+      margin-top: 48px;
+    }
   }
 
   //.reason__item .
@@ -523,15 +664,32 @@
     position: relative;
     background-color: $white;
     overflow: hidden;
+    display: grid;
+
+    @include sp {
+      border-radius: 20px 20px 0 0;
+    }
 
     &.is-reverse {
       margin-top: -34px;
+      @include sp {
+        margin-top: -20px;
+      }
 
       .reason__imgtxt {
         &::after {
           right: auto;
           left: -59px;
           background-image: url(/assets/img/common/cirle08.png);
+          @include sp {
+            width: 108px;
+            height: 108px;
+            background-size: 108px;
+            bottom: -17px;
+            background-image: url(/assets/img/common/circle09.png);
+            right: -61px;
+            left: auto;
+          }
         }
       }
 
@@ -555,6 +713,14 @@
           right: auto;
           left: 155px;
           background-image: url(/assets/img/common/cirle04.png);
+          @include sp {
+            width: 220px;
+            height: 220px;
+            background-size: 220px;
+            top: -28px;
+            background-image: url(/assets/img/common/cirle11.png);
+            left: -123px;
+          }
         }
       }
 
@@ -565,6 +731,9 @@
 
     &:nth-child(3) {
       margin-top: -34px;
+      @include sp {
+        margin-top: -19px;
+      }
     }
 
     &:last-child {
@@ -575,6 +744,9 @@
       .reason__imgtxt {
         &::after {
           bottom: -20px;
+          @include sp {
+            bottom: -13px;
+          }
         }
       }
     }
@@ -597,6 +769,14 @@
         height: 180px;
         background-size: 180px;
       }
+      @include sp {
+        width: 108px;
+        height: 108px;
+        background: url(/assets/img/common/cirle10.png) no-repeat center / 108px;
+        right: auto;
+        left: -58px;
+        bottom: -7px;
+      }
     }
   }
 
@@ -617,6 +797,10 @@
       text-align: center;
       border-radius: 0 0 5px 5px;
       padding: 3px 5px 2px;
+      @include sp {
+        font-size: 1.6rem;
+        min-width: 105px;
+      }
     }
   }
 
@@ -625,6 +809,10 @@
     display: flex;
     align-items: flex-start;
     padding-top: 99px;
+    @include sp {
+      padding: 48px 20px 0;
+      flex-direction: column-reverse !important;
+    }
   }
 
   //.reason__content .
@@ -641,6 +829,14 @@
       padding: 55px 149px 100px 50px;
       max-width: 539px;
     }
+    @include sp {
+      max-width: 100%;
+      margin: -130px 0 0 !important;
+      padding: 117px 0 50px !important;
+      position: relative;
+      z-index: 0;
+      background-color: transparent;
+    }
 
     &::before {
       content: '';
@@ -650,6 +846,26 @@
       width: 88px;
       height: 88px;
       background: url(/assets/img/common/cirle03.png) no-repeat center / 88px;
+      @include sp {
+        width: 220px;
+        height: 220px;
+        background: url(/assets/img/common/cirle08.png) no-repeat center / 220px;
+        right: -118px;
+        top: -28px;
+      }
+    }
+
+    &::after {
+      content: '';
+      background-color: $brown-100;
+      width: calc(100vw - 40px);
+      height: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      position: absolute;
+      border-radius: 20px;
+      z-index: -1;
     }
 
     .ttl {
@@ -670,11 +886,22 @@
       @include tab-sm {
         font-size: 2rem;
       }
+      @include sp {
+        text-align: center;
+        font-size: 2.2rem;
+        line-height: calc(33 / 22);
+        padding-bottom: 14px;
+        margin-bottom: 11px;
+      }
     }
 
     .txt01 {
       @include tab-sm {
         font-size: 1.4rem;
+      }
+      @include sp {
+        font-size: 1.6rem;
+        text-align: justify;
       }
     }
   }
@@ -689,6 +916,11 @@
     border-radius: 20px;
     position: relative;
     z-index: 2;
+    @include sp {
+      margin: 0 0 30px !important;
+      height: 200px;
+      max-width: 100%;
+    }
 
     img {
       width: 100%;
@@ -704,6 +936,10 @@
   padding: 129px 0;
   position: relative;
   margin-bottom: 241px;
+  @include sp {
+    padding: 59px 0;
+    margin-bottom: 84px;
+  }
 
   &::before,
   &::after {
@@ -717,6 +953,14 @@
     left: -45px;
     top: 32px;
     background: url(/assets/img/common/cirle05.png) no-repeat center / 135px;
+    @include sp {
+      width: 91px;
+      height: 91px;
+      background-size: 91px;
+      left: -20px;
+      top: -50px;
+      z-index: -1;
+    }
   }
 
   &::after {
@@ -730,6 +974,14 @@
       width: 298px;
       // height: 187px;
       background-size: 298px;
+    }
+    @include sp {
+      width: 223px;
+      height: 184px;
+      background: url(/assets/img/common/cirle06-sp.png) no-repeat center /
+        223px;
+      right: -26px;
+      bottom: -61px;
     }
   }
 
@@ -748,6 +1000,11 @@
           top: -40px;
           left: 160px;
         }
+        @include sp {
+          font-size: 5.75rem;
+          left: 5px;
+          top: 4px;
+        }
       }
     }
   }
@@ -759,6 +1016,9 @@
   background-color: $brown-200;
   padding: 38px 0 0;
   position: relative;
+  @include sp {
+    margin-top: -126px;
+  }
 
   //.infor__wrap .
   &__wrap {
@@ -769,6 +1029,9 @@
     padding: 0 45px;
     @include tab {
       padding: 0 25px;
+    }
+    @include sp {
+      padding: 0 20px;
     }
   }
 
@@ -781,6 +1044,9 @@
     overflow: hidden;
     position: relative;
     z-index: 2;
+    @include sp {
+      flex-direction: column-reverse;
+    }
   }
 
   //.infor__img .
@@ -789,6 +1055,10 @@
     max-width: 508px;
     @include lg {
       max-width: 400px;
+    }
+    @include sp {
+      height: 300px;
+      max-width: 100%;
     }
 
     img {
@@ -809,11 +1079,18 @@
     @include tab-sm {
       padding: 40px 20px;
     }
+    @include sp {
+      padding: 39px 20px 31px;
+    }
   }
 
   //.infor__logo .
   &__logo {
     max-width: 480px;
+    @include sp {
+      max-width: 275px;
+      margin: 0 auto;
+    }
   }
 
   //.infor__address .
@@ -830,16 +1107,28 @@
       padding-left: 0;
       font-size: 1.4rem;
     }
+    @include sp {
+      text-align: left;
+      font-size: 1.6rem;
+      line-height: calc(24 / 16);
+      margin: 15px 0 17px -10px;
+    }
   }
 
   .tel {
     margin-bottom: 30px;
+    @include sp {
+      margin-bottom: 20px;
+    }
 
     a {
       min-height: 90px;
       background-color: $brown-100;
       @include tab-sm {
         min-height: 80px;
+      }
+      @include sp {
+        min-height: 65px;
       }
 
       &::after {
@@ -854,6 +1143,11 @@
         background: url(/assets/img/common/icon/icon_arrow02.svg) no-repeat
           center / 10px;
         background-color: $white;
+        @include sp {
+          width: 24px;
+          height: 24px;
+          right: 15px;
+        }
       }
 
       span {
@@ -869,6 +1163,10 @@
           font-size: 2.8rem;
           padding-left: 65px;
         }
+        @include sp {
+          font-size: 2.4rem;
+          padding-left: 50px;
+        }
 
         &::before {
           width: 60px;
@@ -882,6 +1180,11 @@
             top: -5px;
             background-size: 25px;
           }
+          @include sp {
+            background-size: 20px;
+            width: 40px;
+            height: 40px;
+          }
         }
       }
     }
@@ -892,13 +1195,27 @@
     display: flex;
     margin-top: 24px;
     gap: 0 15px;
+    @include sp {
+      margin-top: 28px;
+      gap: 0 10px;
+    }
 
     .btn01 {
+      @include sp {
+        &:first-child {
+          width: 127.5px;
+          min-width: auto;
+        }
+      }
+
       &:last-child {
         @include tab-sm {
           a {
             padding: 5px 25px 5px 36px;
             letter-spacing: 0.04em;
+            @include sp {
+              padding: 5px 36px 5px 32px;
+            }
           }
         }
       }
@@ -913,6 +1230,12 @@
   padding: 239px 0 151px;
   background: url(/assets/img/top/contact_bg.jpg) no-repeat center;
   margin-top: -150px;
+  @include sp {
+    margin-top: -70px;
+    padding: 133px 0 120px;
+    background-image: url(/assets/img/top/contact_bg-sp.jpg);
+    background-size: cover;
+  }
 
   &::after {
     content: '';
@@ -946,6 +1269,9 @@
     overflow: hidden;
     z-index: 1;
     bottom: -28px;
+    @include sp {
+      bottom: -17px;
+    }
 
     .loop_textWrap {
       display: flex;
@@ -954,6 +1280,9 @@
       height: 100%;
       animation: loop1 20s linear infinite;
       gap: 50px;
+      @include sp {
+        gap: 30px;
+      }
 
       span {
         display: inline-block;
@@ -969,6 +1298,9 @@
         opacity: 0.2;
         @include tab-sm {
           font-size: 14rem;
+        }
+        @include sp {
+          font-size: 10.842rem;
         }
       }
     }
@@ -986,6 +1318,12 @@
     @include tab-sm {
       font-size: 3.2rem;
     }
+    @include sp {
+      font-size: 2.8rem;
+      line-height: calc(39.09 / 28);
+      padding-bottom: 21px;
+      margin-bottom: 16px;
+    }
 
     &::after {
       content: '';
@@ -1002,6 +1340,9 @@
           transparent 2px 8px
         )
         1;
+      @include sp {
+        width: 122px;
+      }
     }
   }
 
@@ -1012,6 +1353,11 @@
     grid-template-columns: 219px 486px;
     gap: 15px 30px;
     align-items: center;
+    @include sp {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 35px;
+    }
 
     .tel {
       a {
@@ -1024,6 +1370,11 @@
             width: 30px;
             height: 27px;
             top: 2px;
+            @include sp {
+              width: 20px;
+              height: 16px;
+              top: 16px;
+            }
           }
         }
       }
@@ -1032,6 +1383,10 @@
     .entry {
       grid-column-start: 1;
       grid-row-start: 2;
+      @include sp {
+        grid-column-start: auto;
+        grid-row-start: auto;
+      }
 
       .btn03__txt {
         span {
@@ -1039,6 +1394,10 @@
             background-image: url(/assets/img/common/icon/icon_mail.svg);
             width: 30px;
             height: 22px;
+            @include sp {
+              width: 20px;
+              height: 15px;
+            }
           }
         }
       }
@@ -1048,6 +1407,11 @@
       grid-row: span 2 / span 2;
       grid-column-start: 2;
       grid-row-start: 1;
+      @include sp {
+        grid-column: span 2 / span 2;
+        grid-column-start: auto;
+        grid-row-start: auto;
+      }
 
       a {
         min-height: 145px;
@@ -1056,6 +1420,10 @@
         padding: 5px 70px 5px 30px;
         @include tab-sm {
           min-height: 135px;
+        }
+        @include sp {
+          min-height: 80px;
+          padding: 5px 60px 5px 19px;
         }
 
         &::after {
@@ -1070,6 +1438,11 @@
           background: url(/assets/img/common/icon/icon_arrow07.svg) no-repeat
             center / 13px;
           background-color: $brown-100;
+          @include sp {
+            width: 30px;
+            height: 30px;
+            right: 19px;
+          }
         }
 
         span {
@@ -1080,6 +1453,10 @@
           letter-spacing: 0.1em;
           @include tab-sm {
             font-size: 5rem;
+          }
+          @include sp {
+            font-size: 4.12rem;
+            padding-left: 82px;
           }
 
           &::before {
@@ -1092,6 +1469,12 @@
               width: 80px;
               height: 80px;
               background-size: 40px;
+            }
+            @include sp {
+              width: 50px;
+              height: 50px;
+              background-size: 28px;
+              top: 6px;
             }
           }
         }

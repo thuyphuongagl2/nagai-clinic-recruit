@@ -7,7 +7,7 @@ $(document).ready(function () {
   /* ======================================
   menu
   ====================================== */
-  $(document).on('click', '.js-menu', function() {
+  $(document).on('click', '.js-menu', function () {
     $(this).toggleClass('active')
     $(".header__content, .header__inner").toggleClass("is-active");
     $('body').toggleClass('lock');
@@ -89,7 +89,7 @@ $(document).ready(function () {
   /* ======================================
   tabs
   ====================================== */
-   $('.js-tab').on('click', '.tab__txt', function (e) {
+  $('.js-tab').on('click', '.tab__txt', function (e) {
     e.preventDefault();
     var tabId = $(this).attr('data-tab');
     $(this).closest('.js-tab').find('.tab__txt').removeClass('is-active');
@@ -133,8 +133,8 @@ $(document).ready(function () {
   banner sticky
   ====================================== */
   $('.banner__sticky .close').click(function () {
-		$(this).parent().fadeOut();
-	});
+    $(this).parent().fadeOut();
+  });
   /* ======================================
   modal
   ====================================== */
@@ -142,7 +142,144 @@ $(document).ready(function () {
     $('.sticky .map').toggleClass('active');
     $('.sticky .modal-map').toggleClass('active');
   });
+
+
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+// constants
+let allowScroll = true; // sometimes we want to ignore scroll-related stuff, like when an Observer-based section is transitioning.
+let scrollTimeout = gsap.delayedCall(1, () => (allowScroll = true)).pause(); // controls how long we should wait after an Observer-based animation is initiated before we allow another scroll-related action
+const time = 0.5; // animation duration
+let animating = false; // state
+
+// Progressive enhancement
+gsap.set(".reason__item", {
+  y: (index) => 20 * index,
+  transformOrigin: "center top"
 });
+
+//--------------------------------//
+// The timeline
+//--------------------------------//
+const tl = gsap.timeline({
+  paused: true
+});
+
+tl.add("card2");
+tl.to(".reason__item:nth-child(1)", {
+  scale: 0.85,
+  duration: time,
+  backgroundColor: "#3498db"
+});
+tl.from(
+  ".reason__item:nth-child(2)",
+  {
+    y: () => window.innerHeight,
+    duration: time
+  },
+  "<"
+);
+
+tl.add("card3");
+tl.to(".reason__item:nth-child(2)", {
+  scale: 0.9,
+  duration: time,
+  backgroundColor: "#3498db"
+});
+tl.from(
+  ".reason__item:nth-child(3)",
+  {
+    y: () => window.innerHeight,
+    duration: time
+  },
+  "<"
+);
+
+tl.add("card4");
+tl.to(".reason__item:nth-child(3)", {
+  scale: 0.95,
+  duration: time,
+  backgroundColor: "#3498db"
+});
+tl.from(
+  ".reason__item:nth-child(4)",
+  {
+    y: () => window.innerHeight,
+    duration: time
+  },
+  "<"
+);
+tl.add("card5");
+// END The timeline --------------//
+
+function tweenToLabel(direction, isScrollingDown) {
+  if (
+    (!tl.nextLabel() && isScrollingDown) ||
+    (!tl.previousLabel() && !isScrollingDown)
+  ) {
+    cardsObserver.disable(); // resume native scroll
+    return;
+  }
+  if (!animating && direction) {
+    // Check if we're already animating
+    animating = true;
+    tl.tweenTo(direction, { onComplete: () => (animating = false) });
+  }
+}
+
+//--------------------------------//
+// Observer plugin
+//--------------------------------//
+const cardsObserver = Observer.create({
+  // type: "wheel,touch,pointer",
+  wheelSpeed: -1,
+  onDown: (self) => tweenToLabel(tl.previousLabel(), false),
+  onUp: (self) => tweenToLabel(tl.nextLabel(), true),
+  tolerance: 10,
+  preventDefault: true,
+  onEnable(self) {
+    allowScroll = false;
+    scrollTimeout.restart(true);
+    // when enabling, we should save the scroll position and freeze it. This fixes momentum-scroll on Macs, for example.
+    let savedScroll = self.scrollY();
+    self._restoreScroll = () => self.scrollY(savedScroll); // if the native scroll repositions, force it back to where it should be
+    document.addEventListener("scroll", self._restoreScroll, {
+      passive: false
+    });
+  },
+  onDisable: (self) =>
+    document.removeEventListener("scroll", self._restoreScroll)
+});
+
+cardsObserver.disable(); // Disable one page load
+// END Observer plugin --------------//
+
+//--------------------------------//
+// ScrollTrigger that disables the scroll and has the Observer plugin take over
+//--------------------------------//
+ScrollTrigger.create({
+  id: "STOP-SCROLL",
+  trigger: ".reason__list",
+  pin: true,
+  start: "top 20%",
+  end: "+=100",
+  onEnter: (self) => {
+    if (cardsObserver.isEnabled) return;
+    cardsObserver.enable(); // STOP native scrolling
+  },
+  onEnterBack: (self) => {
+    if (cardsObserver.isEnabled) return;
+    cardsObserver.enable(); // STOP native scrolling
+  }
+});
+
+// END ScrollTrigger that disables the scroll and has the Observer plugin take over  --------------//
+});
+
+
 
 
 $(function () {

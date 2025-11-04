@@ -165,6 +165,11 @@
   @include tab-sm {
     gap: 20px;
   }
+  @include sp {
+    flex-wrap: wrap;
+    margin-top: 32px;
+    gap: 22px 10px;
+  }
 
   //.list02__item .
   &__item {
@@ -183,6 +188,18 @@
     @include tab-sm {
       width: calc(25% - 5px);
     }
+    @include sp {
+      width: calc(50% - 5px);
+
+      &:nth-child(3) {
+        .list02__ttl {
+          a {
+            letter-spacing: 0.03em;
+            padding: 12px 25px 8px 10px;
+          }
+        }
+      }
+    }
   }
 
   //.list02__top .
@@ -190,6 +207,9 @@
     position: relative;
     overflow: hidden;
     border-radius: 15px;
+    @include sp {
+      border-radius: 10px;
+    }
   }
 
   //.list02__img .
@@ -198,6 +218,10 @@
     overflow: hidden;
     position: relative;
     transition: all 0.3s ease-in-out;
+    @include sp {
+      height: 170px;
+      border-radius: 10px;
+    }
 
     img {
       width: 100%;
@@ -212,7 +236,7 @@
     bottom: 0;
     left: 0;
 
-    a {
+    p {
       background-color: $white;
       border-radius: 0 15px;
       display: inline-block;
@@ -226,12 +250,21 @@
       @include tab {
         font-size: 1.4rem;
       }
+      @include sp {
+        font-size: 1.6rem;
+        border-radius: 0 10px;
+        padding: 12px 34px 7px 10px;
+        line-height: calc(20.8 / 16);
+      }
 
       &::after {
         @include ic-arrow(19px);
         transform: none;
         bottom: 12px;
         top: auto;
+        @include sp {
+          right: 15px;
+        }
       }
     }
   }
@@ -246,11 +279,19 @@
         transparent 2px 8px
       )
       1;
+      @include sp {
+        padding-left: 6px;
+        padding-right: 5px;
+        text-align: justify;
+      }
   }
 }
 
 .list03 {
   margin-top: 23px;
+  @include sp {
+    margin-top: 4px;
+  }
 
   //.list03__item .
   &__item {
@@ -263,6 +304,9 @@
     padding: 30px 45px 30px 0;
     position: relative;
     border-bottom: 1px solid $gray-100;
+    @include sp {
+      padding: 26px 40px 26px 0;
+    }
 
     &::before {
       content: '';
@@ -311,6 +355,11 @@
       line-height: calc(32.79 / 23);
       color: $brown-900;
       margin-left: 14px;
+      @include sp {
+        font-size: 1.8rem;
+        line-height: calc(26 / 18);
+        margin-left: 5px;
+      }
     }
 
     .btn {
@@ -320,6 +369,10 @@
       transform: translateY(-50%);
       width: 38px;
       height: 38px;
+      @include sp {
+        width: 30px;
+        height: 30px;
+      }
 
       &::before {
         content: '';
@@ -331,10 +384,17 @@
         width: 38px;
         height: 38px;
         transition: all 0.3s ease-in-out;
+        @include sp {
+        width: 30px;
+        height: 30px;
+      }
       }
 
       &::after {
         @include ic-arrow(15px);
+        @include sp {
+          right: 10px;
+        }
       }
     }
   }

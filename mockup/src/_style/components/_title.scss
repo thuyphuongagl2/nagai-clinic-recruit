@@ -20,6 +20,7 @@
     }
     @include sp {
       font-size: 2.8rem;
+      padding-left: 22px;
     }
 
     &::before {
@@ -53,6 +54,8 @@
       }
       @include sp {
         font-size: 5.75rem;
+        top: -3px;
+        left: -27px;
       }
     }
   }
@@ -67,6 +70,9 @@
       line-height: calc(31.75 / 16);
       letter-spacing: 0.05em;
       color: $primary;
+      @include sp {
+        margin-bottom: -7px;
+      }
     }
 
     .jp {
@@ -77,7 +83,7 @@
       }
       @include sp {
         font-size: 2.8rem;
-        letter-spacing: 0.01em;
+        letter-spacing: -0.05em;
       }
     }
   }
@@ -97,6 +103,13 @@
     line-height: calc(58.69 / 37);
     display: block;
     margin-top: 2px;
+    @include sp {
+      margin-top: -5px;
+      padding-left: 24px;
+      font-size: 2.8rem;
+      line-height: calc(39.09 / 28);
+      letter-spacing: 0.1em;
+    }
 
     &::before {
       content: '';
@@ -107,6 +120,9 @@
       background-color: $primary;
       border-radius: 50%;
       top: 25px;
+      @include sp {
+        top: 15px;
+      }
     }
   }
 

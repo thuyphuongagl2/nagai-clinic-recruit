@@ -35,9 +35,10 @@ h2 {
     background-image: url(/assets/img/common/circle09.png);
     background-size: 65px;
     @include sp {
-      top: -1px;
-      width: 30px;
+      top: -6px;
+      width: 38px;
       height: 38px;
+      background-size: 38px;
     }
   }
 
@@ -56,7 +57,7 @@ h2 {
   @include sp {
     font-size: 2.6rem;
     margin: 25px 0;
-    padding-top: 30px;
+    padding-top: 35px;
     padding-bottom: 12px;
   }
 }
@@ -97,6 +98,9 @@ h4 {
     height: calc(100% - 11.5px);
     background-color: $primary;
     border-radius: 5px;
+    @include sp {
+      height: calc(100% - 5px);
+    }
   }
 
   @include tab {
@@ -556,7 +560,8 @@ p {
       height: calc(100% - 18px);
       transform: none;
       @include sp {
-        top: 10px;
+        top: 3px;
+        height: calc(100% - 13px);
       }
     }
   }
@@ -666,7 +671,7 @@ p {
   }
   @include sp {
     border-radius: 15px;
-    padding: 20px 0;
+    padding: 20px;
   }
   //.topicflow__item .
   &__item {
@@ -676,7 +681,7 @@ p {
     border-radius: 10px;
     @include sp {
       display: block;
-      padding: 40px 20px 20px;
+      padding: 45px 20px 20px;
     }
 
     &:not(:last-child) {
@@ -704,11 +709,6 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    @include sp {
-      margin-bottom: 15px;
-      padding: 0;
-      margin-left: -20px;
-    }
 
     .txt {
       background-color: $primary;
@@ -724,6 +724,11 @@ p {
       padding: 9px 21px 9px 29px;
       min-width: 155px;
       text-align: center;
+      @include sp {
+        font-size: 1.8rem;
+        min-width: 100px;
+        padding: 8px 20px;
+      }
     }
   }
 
@@ -760,7 +765,7 @@ p {
 .table01 {
   .table01__txt {
     @include sp {
-      line-height: 0;
+      line-height: 1.3;
     }
   }
 }

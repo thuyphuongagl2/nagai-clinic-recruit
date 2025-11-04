@@ -129,4 +129,42 @@
   transition: 0.3s ease all;
   visibility: hidden;
   cursor: auto;
+  @include sp {
+    z-index: -1;
+    width: 100vw;
+    right: 0;
+    bottom: 96%;
+  }
+
+  .btn__map {
+    margin: 20px auto 0;
+
+    a {
+      width: 150px;
+      border: 1px solid $primary;
+      margin: 0 auto;
+      padding: 4px 20px 5px 15px;
+      position: relative;
+      font-size: 1.5rem;
+      font-weight: 500;
+      display: block;
+      text-align: center;
+    }
+  }
+
+  .btn03 {
+    a {
+      width: 250px;
+      margin: 0 auto;
+
+      span {
+        &::before {
+          background-image: url(/assets/img/common/icon/icon_phone.svg);
+          width: 20px;
+          height: 16px;
+          top: 5px;
+        }
+      }
+    }
+  }
 }

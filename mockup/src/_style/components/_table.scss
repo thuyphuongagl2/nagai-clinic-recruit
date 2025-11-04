@@ -29,7 +29,7 @@
         width: 8.7%;
         height: 42px;
         @include sp {
-          height: 43px;
+          height: 40px;
           width: 9%;
         }
       }
@@ -46,7 +46,7 @@
       height: 43px;
       letter-spacing: 0.1em;
       @include sp {
-        height: 50px;
+        height: 42px;
         font-size: 1.3rem;
         padding: 2px 0;
       }
@@ -90,6 +90,12 @@
     }
     @include sp {
       font-size: 1.4rem !important;
+      margin-top: 8px;
+      line-height: calc(18.25 / 14);
+
+      .txt-sp {
+        margin-left: 73px;
+      }
     }
   }
 }
@@ -151,18 +157,6 @@
     }
   }
 
-  &__note {
-    display: none;
-    @include sp {
-      display: block;
-      font-size: 1.3rem !important;
-      color: #ccc;
-      letter-spacing: 0.02em !important;
-      margin-top: 2px;
-      line-height: 1.2 !important;
-    }
-  }
-
   &.fix_table {
     table-layout: fixed;
   }
@@ -197,5 +191,17 @@
         }
       }
     }
+  }
+}
+
+.table03__note {
+  display: none;
+  @include sp {
+    display: block;
+    font-size: 1.3rem !important;
+    color: #ccc !important;
+    letter-spacing: 0.02em !important;
+    margin-top: 2px;
+    line-height: 1.2 !important;
   }
 }

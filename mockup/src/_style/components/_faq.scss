@@ -87,7 +87,6 @@
       left: 0;
       @include sp {
         font-size: 2.4rem;
-        margin-top: -1px;
       }
     }
   }
@@ -115,8 +114,8 @@
     letter-spacing: 0.1em;
     font-weight: 500;
     @include sp {
-      padding-left: 40px;
-      font-size: 1.5rem;
+      padding-left: 38px;
+      font-size: 1.4rem;
     }
 
     &::before {
