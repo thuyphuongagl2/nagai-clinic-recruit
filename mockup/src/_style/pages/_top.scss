@@ -57,8 +57,8 @@
     margin-left: auto;
     @include sp {
       width: 100%;
-      height: 437px;
-      min-height: 437px;
+      height: calc(100% - 232px);
+      min-height: 456px;
       overflow: hidden;
     }
   }
@@ -66,7 +66,7 @@
   &__track {
     display: flex;
     flex-direction: column;
-    animation: scroll 40s linear infinite;
+    animation: scroll 75s linear infinite;
     gap: 15px;
   }
 
@@ -89,7 +89,7 @@
     position: absolute;
     @include sp {
       left: 50%;
-      top: 12%;
+      top: 11%;
       text-align: center;
       padding: 0 20px;
       transform: translateX(-50%);
@@ -537,7 +537,8 @@
 
   .btn01 {
     width: 177px;
-    margin: -34px auto 0;
+    // margin: -34px auto 0;
+    margin: 50px auto 0;
     @include sp {
       width: 157.5px;
       min-width: auto;
@@ -614,6 +615,32 @@
         }
       }
     }
+
+    &.active {
+      .logo {
+        width: 380px;
+      }
+
+      .reason__title {
+        &::after {
+          font-size: 8.6rem;
+          top: -6px;
+        }
+      }
+
+      .txt {
+        font-size: 2.4rem;
+
+        span {
+          font-size: 4.2rem;
+
+          &::after {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+    }
   }
 
   //.reason__title .
@@ -647,13 +674,15 @@
   &__list {
     margin-top: 85px;
     position: relative;
-  display: grid;
+    display: grid;
+    // flex-basis: calc(50% - 2rem + 1rem);
 
-    > * {
-    grid-area: 1 / 1 / 2 / 2;
-  }
+    & > * {
+      grid-area: 1 / 1 / 2 / 2;
+    }
     @include sp {
       margin-top: 48px;
+      display: block;
     }
   }
 
@@ -661,17 +690,25 @@
   &__item {
     border: 1px solid $primary;
     border-radius: 25px 25px 0 0;
-    position: relative;
+    position: sticky;
     background-color: $white;
-    overflow: hidden;
+    // overflow: hidden;
     display: grid;
-
+    height: 474px;
+    // aspect-ratio: 1/1;
     @include sp {
       border-radius: 20px 20px 0 0;
+      height: auto;
     }
+    @include md {
+      &:not(:last-child) {
+        border-bottom: 0;
+      }
+    }
+    
 
     &.is-reverse {
-      margin-top: -34px;
+      // margin-top: -34px;
       @include sp {
         margin-top: -20px;
       }
@@ -730,7 +767,7 @@
     }
 
     &:nth-child(3) {
-      margin-top: -34px;
+      // margin-top: -34px;
       @include sp {
         margin-top: -19px;
       }
@@ -866,6 +903,7 @@
       position: absolute;
       border-radius: 20px;
       z-index: -1;
+      pointer-events: none;
     }
 
     .ttl {

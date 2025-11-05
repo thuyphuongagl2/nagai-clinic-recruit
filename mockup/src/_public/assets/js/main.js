@@ -146,137 +146,118 @@ $(document).ready(function () {
 
 
 
+gsap.registerPlugin(ScrollTrigger, Observer);
 
-gsap.registerPlugin(ScrollTrigger);
+if (window.innerWidth >= 768) {
+  // constants
+  let allowScroll = true;
+  let scrollTimeout = gsap.delayedCall(1, () => (allowScroll = true)).pause();
+  const time = 1.2; 
+  let animating = false;
 
-// constants
-let allowScroll = true; // sometimes we want to ignore scroll-related stuff, like when an Observer-based section is transitioning.
-let scrollTimeout = gsap.delayedCall(1, () => (allowScroll = true)).pause(); // controls how long we should wait after an Observer-based animation is initiated before we allow another scroll-related action
-const time = 0.5; // animation duration
-let animating = false; // state
+  // set initial position
+  gsap.set(".reason__item", {
+    y: (index) => 30 * index,
+    opacity: (index) => (index === 0 ? 1 : 0),
+    transformOrigin: "center top"
+  });
 
-// Progressive enhancement
-gsap.set(".reason__item", {
-  y: (index) => 20 * index,
-  transformOrigin: "center top"
-});
+  //--------------------------------//
+  // The timeline (stacking)
+  //--------------------------------//
+  const tl = gsap.timeline({ paused: true, defaults: { ease: "power3.inOut" } });
 
-//--------------------------------//
-// The timeline
-//--------------------------------//
-const tl = gsap.timeline({
-  paused: true
-});
+  tl.add("card2");
+  tl.to(".reason__item:nth-child(1)", { y: -44, opacity: 0.5, duration: time });
+  tl.to(".reason__item:nth-child(2)", { y: 0, opacity: 1, duration: time }, "<");
 
-tl.add("card2");
-tl.to(".reason__item:nth-child(1)", {
-  scale: 0.85,
-  duration: time,
-  backgroundColor: "#3498db"
-});
-tl.from(
-  ".reason__item:nth-child(2)",
-  {
-    y: () => window.innerHeight,
-    duration: time
-  },
-  "<"
-);
+  tl.add("card3");
+  tl.to(".reason__item:nth-child(2)", { y: -3, opacity: 0.5, duration: time });
+  tl.to(".reason__item:nth-child(3)", { y: 40, opacity: 1, duration: time }, "<");
 
-tl.add("card3");
-tl.to(".reason__item:nth-child(2)", {
-  scale: 0.9,
-  duration: time,
-  backgroundColor: "#3498db"
-});
-tl.from(
-  ".reason__item:nth-child(3)",
-  {
-    y: () => window.innerHeight,
-    duration: time
-  },
-  "<"
-);
+  tl.add("card4");
+  tl.to(".reason__item:nth-child(3)", { y: 39, opacity: 0.5, duration: time });
+  tl.to(".reason__item:nth-child(4)", { y: 81, opacity: 1, duration: time }, "<");
 
-tl.add("card4");
-tl.to(".reason__item:nth-child(3)", {
-  scale: 0.95,
-  duration: time,
-  backgroundColor: "#3498db"
-});
-tl.from(
-  ".reason__item:nth-child(4)",
-  {
-    y: () => window.innerHeight,
-    duration: time
-  },
-  "<"
-);
-tl.add("card5");
-// END The timeline --------------//
+  tl.add("card5");
+  // END timeline
 
-function tweenToLabel(direction, isScrollingDown) {
-  if (
-    (!tl.nextLabel() && isScrollingDown) ||
-    (!tl.previousLabel() && !isScrollingDown)
-  ) {
-    cardsObserver.disable(); // resume native scroll
-    return;
+  //--------------------------------//
+  // Smooth tween function
+  //--------------------------------//
+  function tweenToLabel(direction, isScrollingDown) {
+    if (
+      (!tl.nextLabel() && isScrollingDown) ||
+      (!tl.previousLabel() && !isScrollingDown)
+    ) {
+      cardsObserver.disable(); // resume native scroll
+      return;
+    }
+    if (!animating && direction) {
+      animating = true;
+      gsap.to(tl, {
+        time: tl.labels[direction],
+        duration: 1.2, // thời gian tween giữa label
+        ease: "power2.out",
+        onComplete: () => (animating = false)
+      });
+    }
   }
-  if (!animating && direction) {
-    // Check if we're already animating
-    animating = true;
-    tl.tweenTo(direction, { onComplete: () => (animating = false) });
+
+  //--------------------------------//
+  // Observer setup (smooth scroll control)
+  //--------------------------------//
+  const cardsObserver = Observer.create({
+    wheelSpeed: -1,
+    tolerance: 8,
+    preventDefault: true,
+    onDown: () => tweenToLabel(tl.previousLabel(), false),
+    onUp: () => tweenToLabel(tl.nextLabel(), true),
+    onEnable(self) {
+      allowScroll = false;
+      scrollTimeout.restart(true);
+      const savedScroll = self.scrollY();
+      self._restoreScroll = () => self.scrollY(savedScroll);
+      document.addEventListener("scroll", self._restoreScroll, { passive: false });
+    },
+    onDisable(self) {
+      document.removeEventListener("scroll", self._restoreScroll);
+    }
+  });
+
+  cardsObserver.disable();
+
+  //--------------------------------//
+  // ScrollTrigger activate zone
+  //--------------------------------//
+  ScrollTrigger.create({
+    trigger: ".reason",
+    pin: true,
+    start: "top-=10%",
+    end: "top+=60px",
+    // markers: true, // bỏ nếu không cần debug
+    scrub: .5,
+ onEnter: () => {
+    document.querySelector(".reason__head")?.classList.add("active");
+    if (!cardsObserver.enabled) cardsObserver.enable();
+  },
+  onEnterBack: () => {
+    document.querySelector(".reason__head")?.classList.add("active");
+    if (!cardsObserver.enabled) cardsObserver.enable();
+  },
+  onLeave: () => {
+    document.querySelector(".reason__head")?.classList.remove("active");
+    if (cardsObserver.enabled) cardsObserver.disable();
+  },
+  onLeaveBack: () => {
+    document.querySelector(".reason__head")?.classList.remove("active");
+    if (cardsObserver.enabled) cardsObserver.disable();
   }
+  });
 }
 
-//--------------------------------//
-// Observer plugin
-//--------------------------------//
-const cardsObserver = Observer.create({
-  // type: "wheel,touch,pointer",
-  wheelSpeed: -1,
-  onDown: (self) => tweenToLabel(tl.previousLabel(), false),
-  onUp: (self) => tweenToLabel(tl.nextLabel(), true),
-  tolerance: 10,
-  preventDefault: true,
-  onEnable(self) {
-    allowScroll = false;
-    scrollTimeout.restart(true);
-    // when enabling, we should save the scroll position and freeze it. This fixes momentum-scroll on Macs, for example.
-    let savedScroll = self.scrollY();
-    self._restoreScroll = () => self.scrollY(savedScroll); // if the native scroll repositions, force it back to where it should be
-    document.addEventListener("scroll", self._restoreScroll, {
-      passive: false
-    });
-  },
-  onDisable: (self) =>
-    document.removeEventListener("scroll", self._restoreScroll)
-});
 
-cardsObserver.disable(); // Disable one page load
-// END Observer plugin --------------//
 
-//--------------------------------//
-// ScrollTrigger that disables the scroll and has the Observer plugin take over
-//--------------------------------//
-ScrollTrigger.create({
-  id: "STOP-SCROLL",
-  trigger: ".reason__list",
-  pin: true,
-  start: "top 20%",
-  end: "+=100",
-  onEnter: (self) => {
-    if (cardsObserver.isEnabled) return;
-    cardsObserver.enable(); // STOP native scrolling
-  },
-  onEnterBack: (self) => {
-    if (cardsObserver.isEnabled) return;
-    cardsObserver.enable(); // STOP native scrolling
-  }
-});
-
-// END ScrollTrigger that disables the scroll and has the Observer plugin take over  --------------//
 });
 
 
