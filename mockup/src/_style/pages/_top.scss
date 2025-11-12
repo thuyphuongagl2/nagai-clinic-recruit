@@ -485,6 +485,7 @@
   position: relative;
   padding: 0 0 100px;
   background-color: $brown-200;
+  overflow: hidden;
   @include sp {
     padding-top: 62px;
 
@@ -675,27 +676,45 @@
     margin-top: 85px;
     position: relative;
     display: grid;
-    // flex-basis: calc(50% - 2rem + 1rem);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 40vw);
+    gap: 4vw;
 
-    & > * {
-      grid-area: 1 / 1 / 2 / 2;
-    }
     @include sp {
       margin-top: 48px;
       display: block;
     }
   }
 
+  #item_1 {
+    --index: 1;
+  }
+
+  #item_2 {
+    --index: 2;
+  }
+
+  #item_3 {
+    --index: 3;
+  }
+
+  #item_4 {
+    --index: 4;
+  }
+
   //.reason__item .
   &__item {
+    position: sticky;
+    top: 150px;
+    padding-top: calc((var(--index) * 3em));
+  }
+
+  //.reason__detail .
+  &__detail {
     border: 1px solid $primary;
     border-radius: 25px 25px 0 0;
-    position: sticky;
     background-color: $white;
-    // overflow: hidden;
-    display: grid;
-    height: 474px;
-    // aspect-ratio: 1/1;
+
     @include sp {
       border-radius: 20px 20px 0 0;
       height: auto;
@@ -705,7 +724,6 @@
         border-bottom: 0;
       }
     }
-    
 
     &.is-reverse {
       // margin-top: -34px;
@@ -846,6 +864,8 @@
     display: flex;
     align-items: flex-start;
     padding-top: 99px;
+    overflow: hidden;
+
     @include sp {
       padding: 48px 20px 0;
       flex-direction: column-reverse !important;
@@ -967,6 +987,23 @@
     }
   }
 }
+@supports (animation-timeline: works) {
+  @scroll-timeline cards-element-scrolls-in-body {
+    source: selector(body);
+    scroll-offsets: selector(#stacking) start 1,
+      selector(#stacking) start 0;
+    start: selector(#stacking) start 1;
+    end: selector(#stacking) start 0;
+
+    time-range: 4s;
+  }
+
+  .card {
+    --index0: calc(var(--index) - 1);
+    --reverse-index: calc(4 - var(--index0));
+    --reverse-index0: calc(var(--reverse-index) - 1);
+  }
+}
 /*------------------------------------------------------------
     Job
 ------------------------------------------------------------*/
@@ -974,6 +1011,7 @@
   padding: 129px 0;
   position: relative;
   margin-bottom: 241px;
+  overflow: hidden;
   @include sp {
     padding: 59px 0;
     margin-bottom: 84px;
