@@ -266,6 +266,7 @@
 .message {
   padding: 152px 0 1px;
   position: relative;
+  overflow: hidden;
   @include sp {
     padding: 85px 0 0;
     margin-top: -25px;
@@ -531,7 +532,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 50%;
+    height: 90%;
     background-color: $brown-100;
     z-index: -1;
   }
@@ -539,7 +540,11 @@
   .btn01 {
     width: 177px;
     // margin: -34px auto 0;
-    margin: 50px auto 0;
+    margin: 0 auto;
+
+    @include tab {
+      margin: -34px auto 0;
+    }
     @include sp {
       width: 157.5px;
       min-width: auto;
@@ -562,10 +567,22 @@
     justify-content: center;
     flex-direction: column;
     position: relative;
+    position: sticky;
+    top: 100px;
     z-index: 2;
     margin-top: -26px;
+    transition: all 0.4s ease; 
+    @include tab {
+      position: relative;
+      top: auto;
+    }
     @include sp {
       margin-top: -32px;
+    }
+
+    &.unstick {
+      position: relative;
+      top: auto;
     }
 
     .logo {
@@ -617,7 +634,7 @@
       }
     }
 
-    &.active {
+    &.sticky {
       .logo {
         width: 380px;
       }
@@ -677,8 +694,18 @@
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 40vw);
+    grid-template-rows: repeat(4, 590px);
     gap: 4vw;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    // @include lg {
+    //    grid-template-rows: repeat(4, 42vw);
+    // }
+    @include tab {
+      display: block;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
 
     @include sp {
       margin-top: 48px;
@@ -705,28 +732,53 @@
   //.reason__item .
   &__item {
     position: sticky;
-    top: 150px;
+    top: 170px;
     padding-top: calc((var(--index) * 3em));
-  }
-
-  //.reason__detail .
-  &__detail {
-    border: 1px solid $primary;
-    border-radius: 25px 25px 0 0;
-    background-color: $white;
-
-    @include sp {
-      border-radius: 20px 20px 0 0;
-      height: auto;
+    @include lg {
+      top: 170px;
+      padding-top: calc((var(--index) * 2.5em));
     }
-    @include md {
-      &:not(:last-child) {
-        border-bottom: 0;
+    @include tab {
+      position: relative;
+      top: auto;
+      padding-top: 0;
+      overflow: hidden;
+    }
+
+    &:nth-child(3) {
+      // margin-top: -34px;
+      @include tab {
+        margin-top: -34px;
+      }
+      @include sp {
+        margin-top: -19px;
+      }
+    }
+
+    &:last-child {
+      .reason__detail {
+        border-bottom: 1px solid $primary;
+      }
+
+      .reason__content {
+        padding-bottom: 68px;
+      }
+
+      .reason__imgtxt {
+        &::after {
+          bottom: -20px;
+          @include sp {
+            bottom: -13px;
+          }
+        }
       }
     }
 
     &.is-reverse {
       // margin-top: -34px;
+      @include tab {
+        margin-top: -34px;
+      }
       @include sp {
         margin-top: -20px;
       }
@@ -759,7 +811,7 @@
 
       .reason__content {
         margin: 0 -30px 0 0;
-        padding: 55px 50px 100px 181px;
+        padding: 55px 50px 100px 140px;
         @include tab-sm {
           padding-left: 162px;
         }
@@ -780,29 +832,25 @@
       }
 
       .reason__img {
-        margin: -30px -130px 0 0;
+        margin: -30px -100px 0 0;
       }
     }
+  }
 
-    &:nth-child(3) {
-      // margin-top: -34px;
-      @include sp {
-        margin-top: -19px;
-      }
+  //.reason__detail .
+  &__detail {
+    border: 1px solid $primary;
+    border-radius: 25px 25px 0 0;
+    background-color: $white;
+    border-bottom: 0;
+
+    @include sp {
+      border-radius: 20px 20px 0 0;
+      height: auto;
     }
-
-    &:last-child {
-      .reason__content {
-        padding-bottom: 68px;
-      }
-
-      .reason__imgtxt {
-        &::after {
-          bottom: -20px;
-          @include sp {
-            bottom: -13px;
-          }
-        }
+    @include md {
+      &:not(:last-child) {
+        border-bottom: 0;
       }
     }
   }
@@ -819,6 +867,11 @@
       width: 220px;
       height: 220px;
       background: url(/assets/img/common/cirle07.png) no-repeat center / 220px;
+      @include lg {
+        width: 200px;
+        height: 200px;
+        right: -40px;
+      }
       @include tab-sm {
         width: 180px;
         height: 180px;
@@ -852,6 +905,10 @@
       text-align: center;
       border-radius: 0 0 5px 5px;
       padding: 3px 5px 2px;
+      @include lg {
+        font-size: 2rem;
+        min-width: 150px;
+      }
       @include sp {
         font-size: 1.6rem;
         min-width: 105px;
@@ -864,7 +921,7 @@
     display: flex;
     align-items: flex-start;
     padding-top: 99px;
-    overflow: hidden;
+    // overflow: hidden;
 
     @include sp {
       padding: 48px 20px 0;
@@ -876,12 +933,13 @@
   &__content {
     background-color: $brown-100;
     border-radius: 20px 20px 0 0;
-    padding: 55px 175px 100px 50px;
+    padding: 55px 110px 100px 50px;
     width: 100%;
     max-width: 595px;
     flex-shrink: 0;
     margin-left: -30px;
     position: relative;
+    // overflow: hidden;
     @include tab-sm {
       padding: 55px 149px 100px 50px;
       max-width: 539px;
@@ -913,7 +971,7 @@
     }
 
     &::after {
-      content: '';
+      // content: '';
       background-color: $brown-100;
       width: calc(100vw - 40px);
       height: 100%;
@@ -967,8 +1025,8 @@
   //.reason__img .
   &__img {
     width: 100%;
-    max-width: 595px;
-    margin-left: -130px;
+    max-width: 555px;
+    margin-left: -80px;
     margin-top: -30px;
     overflow: hidden;
     border-radius: 20px;
@@ -987,18 +1045,17 @@
     }
   }
 }
-@supports (animation-timeline: works) {
+@supports (animation-timeline: scroll()) {
   @scroll-timeline cards-element-scrolls-in-body {
     source: selector(body);
-    scroll-offsets: selector(#stacking) start 1,
-      selector(#stacking) start 0;
+    scroll-offsets: selector(#stacking) start 1, selector(#stacking) start 0;
     start: selector(#stacking) start 1;
     end: selector(#stacking) start 0;
 
     time-range: 4s;
   }
 
-  .card {
+  .reason__item {
     --index0: calc(var(--index) - 1);
     --reverse-index: calc(4 - var(--index0));
     --reverse-index0: calc(var(--reverse-index) - 1);

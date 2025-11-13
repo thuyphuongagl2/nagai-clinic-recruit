@@ -24,4 +24,14 @@ body {
 main {
   // overflow: hidden;
   position: relative;
+  @include tab {
+    overflow: hidden;
+  }
+}
+
+.under {
+  main {
+    overflow: hidden;
+    position: relative;
+  }
 }

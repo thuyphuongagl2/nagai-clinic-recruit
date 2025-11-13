@@ -143,10 +143,43 @@ $(document).ready(function () {
     $('.sticky .modal-map').toggleClass('active');
   });
 
-
-
-
 });
+$(function () {
+  if (window.innerWidth >= 1024) {
+    const $head = $('.reason__head');
+    const $reason = $('.reason');
+    const observerReason = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          $head.addClass('sticky');
+        } else {
+          $head.removeClass('sticky');
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -99% 0px',
+      threshold: 0
+    });
+
+    observerReason.observe($reason[0]);
+
+    $(window).on('scroll', function () {
+      const reasonBottom = $reason.offset().top + $reason.outerHeight();
+      const scrollBottom = $(this).scrollTop() + $(this).height();
+
+      if (scrollBottom >= reasonBottom - 10) {
+        $head.addClass('unstick');
+      } else {
+        $head.removeClass('unstick');
+      }
+    });
+
+  }
+});
+
+
+
+
 
 
 

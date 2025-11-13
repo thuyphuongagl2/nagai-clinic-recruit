@@ -7,6 +7,7 @@
 .footer {
   padding: 69px 0 114px;
   position: relative;
+  overflow: hidden;
   @include sp {
     padding: 11px 0 75px;
   }
